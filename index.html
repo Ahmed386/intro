@@ -33,6 +33,17 @@
        white-space: pre-wrap; 
         word-wrap: break-word;
     }
+
+    a{
+      text-decoration: none;
+    }
+
+    .ifffr{
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+    }
+
   </style>
 </head>
 <body>
@@ -215,6 +226,8 @@ attributes : زي مانتا شايف فوق كده في المثال  :    : <b
 
 ***********************************
 
+
+
 بصوا كده معايا : المفروض اني وانا شغال دي نصيحه ليكوا خلينا نبتدي صح وعلى نضافه لما تيجي تعمل تاسك او واجب كل تاسك تعمله فولدر لوحده 
 
 
@@ -302,5 +315,246 @@ html
 
 
   </pre>
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+<pre>
+
+  <h2>HTML Lists (القوايم)</h2>
+
+<p>تخيل إن عندك قائمة تسوق — دي بالظبط وظيفة الـ lists في HTML: ترتيب عناصر متشابهة.
+
+الأنواع الأساسية:</p>
+
+&lt;ul&gt; — unordered list: قائمة بنقاط (bullet).  &lt;ul&gt;   &lt;/ul&gt;  غير مرقمه
+
+&lt;ol&gt; — ordered list: قائمة مرقمة.    &lt;ol&gt;    &lt;/ol&gt;
+
+&lt;dl&gt; — description list: للـ "مصطلح — تعريف"  &lt;dl&gt;   &lt;/dl&gt;  : &lt;dt&gt;  &lt;/dt&gt;   -- &lt;dd&gt;  &lt;/dd&gt; 
+  
+  
+  &lt;li&gt; — كل عنصر جوه القايمة.    &lt;li&gt;  &lt;/li&gt;
+
+
+
+
+
+<h3>examples</h3>
+
+<p>ul   قائمة غير مرتبة </p>
+
+
+<p>input code :</p>
+<bdi>
+&lt;ul&gt;
+  &lt;li&gt;موز&lt;/li&gt;
+  &lt;li&gt;تفاح&lt;/li&gt;
+  &lt;li&gt;عنب&lt;/li&gt;
+&lt;/ul&gt;
+</bdi>
+
+<p>output:</p>
+<ul>
+  <li>موز</li>
+  <li>تفاح</li>
+  <li>عنب</li>
+</ul>
+
+ 
+<p>*********************</p>
+
+
+<p>ol    قائمة مرقمة</p>
+
+
+<p>input  code :</p>
+
+<bdi>
+  &lt;ol start="3" reversed&gt;<br>
+  &nbsp;&nbsp;&lt;li&gt;البند الأول&lt;/li&gt;<br>
+  &nbsp;&nbsp;&lt;li&gt;البند التاني&lt;/li&gt;<br>
+  &nbsp;&nbsp;&lt;li&gt;البند الثالث&lt;/li&gt;<br>
+  &lt;/ol&gt;
+</bdi>
+
+
+<p>output</p>
+
+<ol start="3" reversed>
+  <li>البند الأول</li>
+  <li>البند التاني</li>
+  <li>البند الثالث</li>
+</ol>
+
+
+<p>*********************</p>
+
+
+<p>dl    قائمة وصفية</p>
+
+
+<p>input code :</p>
+<bdi>
+  &lt;dl&gt;<br>
+  &nbsp;&nbsp;&lt;dt&gt;HTML&lt;/dt&gt;<br>
+  &nbsp;&nbsp;&lt;dd&gt;لغة لهيكلة صفحات الويب&lt;/dd&gt;<br>
+  &nbsp;&nbsp;&lt;dt&gt;CSS&lt;/dt&gt;<br>
+  &nbsp;&nbsp;&lt;dd&gt;بتتحكم في شكل الصفحات&lt;/dd&gt;<br>
+  &lt;/dl&gt;
+</bdi>
+
+
+
+
+
+<p>output</p>
+
+<dl>
+  <dt>HTML</dt>
+  <dd>لغة لهيكلة صفحات الويب</dd>
+  <dt>CSS</dt>
+  <dd>بتتحكم في شكل الصفحات</dd>
+</dl>
+
+
+
+
+
+<p>****************************************************************</p>
+
+
+
+&lt;a&gt; — الـ Anchor (اللينك)
+
+ده العنصر اللي بيعمل تنقل — تقدر تقول هو "باب" بيوديك من الصفحة بتاعتك لصفحه تانية
+
+
+
+
+<p>input code:</p>
+
+&lt;a href="https://google.com" target="_blank"  title="روح للموقع"&gt;
+  زر الموقع
+&lt;/a&gt;
+
+
+<p>output : </p>
+
+<a href="https://google.com" target="_blank"  title="روح للموقع">
+  زر الموقع
+</a>
+
+
+
+<p>href — العنوان/اللينك.</p>
+
+<p>target — فين يفتح: <bdi>_self</bdi> بيفتح مكان الصفحه الي انا فيها  ( الافتراضي)،<br>
+   <bdi>_blank</bdi>  بيفتح في صفحه جديده(تاب/نافذة جديدة)</p>
+
+
+
+   <p>*********************************************************</p>
+
+   <hr>
+
+   <h1>
+    Headings (&lt;h1&gt; — &lt;h6&gt;)
+
+العناوين بتكون في بداية الصفحة — زي فصول الكتاب.
+
+   </h1>
+
+
+   &lt;h1&gt; يفضل انه يستخدم مره واحده في الصفحه 
+
+
+
+<p>input  code :</p>
+
+
+<bdi>
+  &lt;h1&gt;دورة مبسطة في HTML&lt;/h1&gt;<br>
+  &lt;h2&gt;الوحدة الأولى: الأساسيات&lt;/h2&gt;<br>
+  &lt;h3&gt;ما هي العلامات (Tags)؟&lt;/h3&gt;
+</bdi>
+
+
+<p>output</p>
+
+<h1>دورة مبسطة في HTML</h1> <h2>الوحدة الأولى: الأساسيات</h2> <h3>ما هي العلامات (Tags)؟</h3>
+
+
+
+<p>**********************************************</p>
+<hr>
+
+
+
+<h2>  <bdi>&lt;img     src=" "    alt=" "   /&gt; </bdi>  —  الصور</h2>
+
+
+<p>src — مصدر الصورة : مكان الصوره على جهازك او رابط من على النت </p>
+
+
+<p>alt — الوصف النصي للصورة</p>
+
+
+
+<p>input  code: </p>
+
+<bdi>
+  &lt;img src="/images/cat.jpg" alt="قطة" /&gt;
+</bdi>
+ 
+<p>output : </p>
+
+
+<img src="pexels-wojciech-kumpicki-1084687-2071873.jpg" alt="قطة " style="width: 25%;" >
+
+
+<p>****************************************************************************</p>
+<hr>
+
+
+   
+<h2> <bdi> &lt;iframe&gt;  &lt;/iframe&gt;  </bdi> </h2>
+
+<p>الـ iframe بيحط صفحة جوا صفحة — زي ما تحط نافذة لموقع تاني داخل موقعك. مفيد للـ embeds (خرائط، فيديوهات، محتوى خارجي)، لكنه له تحذيرات أمان وأداء.</p>
+
+
+
+<p>src — عنوان الصفحة او الفيديو الي انت عايزها.</p>
+
+<p>width وheight — أبعاد</p>
+
+
+
+<p>input  code :  </p>
+<bdi>
+
+  &lt;iframe  &nbsp;&nbsp;src="https://www.youtube.com/"  &nbsp;&nbsp;width="600" &nbsp;&nbsp;height="400" &gt;&lt;/iframe&gt;
+</bdi>
+
+
+
+<p> output :  </p>
+
+<div class="ifffr">
+  <iframe src="https://ar.wikipedia.org/wiki/%D8%A8%D8%B1%D9%85%D8%AC%D8%A9" frameborder="1" width="600" height="400"></iframe>
+
+</div>
+</pre>
+
+
+  
 </body>
 </html>
