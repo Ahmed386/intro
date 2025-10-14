@@ -15,6 +15,9 @@
       color: #111;
       box-sizing: border-box;
     }
+     h1, h2, h3 {
+      color: #004aad;
+    }
     img{
         width: 100%;
     }
@@ -42,6 +45,12 @@
       display: flex; 
       justify-content: center;
       align-items: center;
+    }
+
+      code {
+      background: #e7e7e7;
+      padding: 2px 5px;
+      border-radius: 4px;
     }
 
   </style>
@@ -449,8 +458,8 @@ html
 
 <p>output : </p>
 
-<a href="https://google.com" target="_blank"  title="روح للموقع">
-  زر الموقع
+<a href="https://google.com" target="_blank"  >
+  google
 </a>
 
 
@@ -554,7 +563,642 @@ html
 </div>
 </pre>
 
+<div style="direction: rtl; font-family: Tahoma, Arial, sans-serif; 
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 22px 24px; margin: 30px auto 40px;
+            max-width: 1050px; border-radius: 14px;
+            background: linear-gradient(135deg,#e6f4ff,#f0fbf3);
+            border: 2px solid rgba(30,144,255,0.18);
+            box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+            color: #063a6f; font-size: 26px; font-weight: 700;">
+  نهاية <span style="color:#d23030; margin:0 8px;">Lesson 2</span><br>
+  <span style="font-size:18px; font-weight:600; color:#064e3b; display:block; margin-top:8px;">
+    بالتوفيق ليكوا جميعًا 
+  </span>
+</div>
 
+
+
+<section>
   
+
+<h1 style="text-align: center;">🎨 مقدمة عن CSS</h1>
+<p>
+CSS اختصار لـ <b>Cascading Style Sheets</b><br>
+يعني "أوراق الأنماط المتتالية" — وهدفها إننا نتحكم في شكل وتصميم صفحات الـ HTML (ألوان، خلفيات، حجم الخط، التنسيق... إلخ).
+</p>
+
+<hr>
+
+<h2>🧩 المكونات الأساسية في CSS</h2>
+<p>كل سطر CSS بيتكوّن من 3 حاجات رئيسية:</p>
+
+<pre style="direction: ltr;">
+selector {
+  property: value;
+}
+</pre>
+
+<h3>📍 1. Selector (المُحدِّد)</h3>
+<p>هو العنصر اللي هتطبّق عليه التنسيقات.</p>
+
+<h3>🎛️ 2. Declaration (التصريح)</h3>
+<p>هو السطر اللي بيقول المتصفح يعمل إيه، وبيكون جواه خاصية (property) وقيمة (value).</p>
+
+<h3>🎨 3. Property (الخاصية)</h3>
+<p>هي الشيء اللي عايز تغيّره (زي اللون، أو حجم الخط، أو الخلفية).</p>
+
+<h3>💡 4. Value (القيمة)</h3>
+<p>هي النتيجة أو الشكل اللي عايزه يتنفّذ.</p>
+
+<pre style="direction: ltr;">
+p {
+  color: blue;
+  font-size: 18px;
+}
+</pre>
+
+<p>
+📖 التوضيح:<br>
+<b>p</b> → الـ selector<br>
+<b>color</b> و <b>font-size</b> → الـ properties<br>
+<b>blue</b> و <b>18px</b> → الـ values<br>
+كل سطر اسمه <b>declaration</b>
+</p>
+
+<hr>
+
+<h2>🎯 طرق إضافة CSS لصفحة HTML</h2>
+
+<h3>🧠 1. Inline CSS</h3>
+<p>بنكتب الـ CSS جوّه وسم الـ HTML نفسه باستخدام الخاصية <code>style</code>.</p>
+
+<pre style="direction: ltr;">
+&lt;p style="color: red; font-size: 20px;"&gt;
+  هذا نص بلون أحمر وحجم 20px
+&lt;/p&gt;
+</pre>
+
+<ul>
+  <li> مميزاته: سريعة وسهلة</li>
+  <li> عيوبه: مش عملي لو الصفحة كبيرة</li>
+</ul>
+
+<hr>
+
+<h3>🧱 2. Internal CSS</h3>
+<p>بنحط الكود داخل وسم <code>&lt;style&gt;</code> في قسم <code>&lt;head&gt;</code>.</p>
+
+<pre style="direction: ltr;">
+&lt;head&gt;
+  &lt;style&gt;
+    p {
+      color: green;
+      font-size: 18px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;هذا نص بلون أخضر&lt;/p&gt;
+&lt;/body&gt;
+</pre>
+
+<ul>
+  <li> مفيد لو الصفحة بسيطة</li>
+  <li> مش مناسب للمشاريع الكبيرة</li>
+</ul>
+
+<hr>
+
+<h3>🗂️ 3. External CSS</h3>
+<p>بنكتب التنسيق في ملف منفصل (مثلاً: <code>style.css</code>) ونربطه في صفحة الـ HTML.</p>
+
+<pre style="direction: ltr;">
+&lt;link rel="stylesheet" href="style.css"&gt;
+</pre>
+
+وفي ملف <b>style.css</b> نكتب:
+<pre style="direction: ltr;">
+p {
+  color: blue;
+  font-size: 18px;
+}
+</pre>
+
+<ul>
+  <li>🟢 الأفضل في المشاريع الكبيرة</li>
+  <li>🔴 لازم تتأكد إن الملف مربوط صح</li>
+</ul>
+
+<hr>
+
+<h2> خصائص الخلفية (Background)</h2>
+
+<h3>🎨 background-color</h3>
+<pre style="direction: ltr;">
+body {
+  background-color: blue;
+}
+</pre>
+
+<h3 >🖼️ background-image</h3>
+<pre style="direction: ltr;">
+body {
+  background-image: url("bg.jpg");
+}
+</pre>
+
+<h3>🔁 background-repeat</h3>
+<pre>
+body {
+  background-repeat: no-repeat;
+}
+</pre>
+
+<p>🧩 القيم الممكنة:</p>
+<ul>
+  <li><code>repeat</code> ← تتكرر في الاتجاهين (افتراضي)</li>
+  <li><code>repeat-x</code> ← أفقيًا فقط</li>
+  <li><code>repeat-y</code> ← رأسيًا فقط</li>
+  <li><code>no-repeat</code> ← لا تتكرر</li>
+</ul>
+
+<h3>📍 background-position</h3>
+<pre style="direction: ltr;">
+body {
+  background-position: center top;
+}
+</pre>
+
+<p>🧭 القيم الشائعة:</p>
+<ul>
+  <li>left top</li>
+  <li>center center</li>
+  <li>right bottom</li>
+</ul>
+
+<h3>📌 background-attachment</h3>
+<pre style="direction: ltr;">
+body {
+  background-attachment: fixed;
+}
+</pre>
+
+<p>القيم:</p>
+<ul>
+  <li><code>scroll</code> ← تتحرك مع الصفحة (الافتراضي)</li>
+  <li><code>fixed</code> ← ثابتة أثناء التمرير</li>
+  <li><code>local</code> ← تتحرك مع العنصر نفسه</li>
+</ul>
+
+<h3>⚖️ الفرق بين cover و contain</h3>
+
+<pre style="direction: ltr;">
+body {
+  background-size: cover;
+}
+</pre>
+<p>🔹 <b>cover</b>: الصورة تغطي الخلفية كلها حتى لو اتقص جزء منها</p>
+
+<pre>
+body {
+  background-size: contain;
+}
+</pre>
+<p>🔹 <b>contain</b>: الصورة كلها بتظهر بدون قصّ، لكن ممكن تسيب فراغات</p>
+
+<hr>
+
+
+
+</section>
+
+<hr>
+
+
+
+<!--  درس تنسيقات النصوص في CSS -->
+<div style="margin-top:40px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.05);">
+
+  <h1>📝 درس تنسيقات النصوص في CSS</h1>
+  <p>
+    دلوقتي هنتعلم أهم خصائص النصوص في CSS، واللي بتتحكم في اللون، الحجم، نوع الخط، شكل الكتابة، والتباعد بين الحروف والكلمات.  
+    دي من أكتر الخصائص اللي بنستخدمها دايمًا في أي تصميم.
+  </p>
+
+  <hr>
+
+  <h2>🎨 1. خاصية <code>color</code></h2>
+  <p>بتتحكم في لون النص داخل العنصر.</p>
+
+  <pre style="direction: ltr;">
+p {
+  color: red;
+}
+  </pre>
+
+  <p>🔹 ممكن تكتب اللون باسم زي <code>red</code> أو بكود HEX زي <code>#ff0000</code> أو RGB زي <code>rgb(255, 0, 0)</code>.</p>
+
+  <hr>
+
+  <h2>🔠 2. خاصية <code>font-size</code></h2>
+  <p>بتحدد حجم الخط.</p>
+
+  <pre style="direction: ltr;">
+p {
+  font-size: 20px;
+}
+  </pre>
+
+  <p> الوحدات الشائعة: <code>px</code>، <code>em</code>، <code>rem</code>، و <code>%</code>.</p>
+
+  <hr>
+
+  <h2> 3. خاصية <code>font-family</code></h2>
+  <p>بتحدد نوع الخط المستخدم.</p>
+
+  <pre>
+p {
+  font-family: "Cairo", Arial, sans-serif;
+}
+  </pre>
+
+  <p> نصيحة: دايمًا حط أكثر من خط احتياطي علشان لو الخط الأول مش متوفر.</p>
+
+  <hr>
+
+  <h2> 4. خاصية <code>font-weight</code></h2>
+  <p>بتتحكم في درجة سمك الخط.</p>
+
+  <pre style="direction: ltr;">
+p {
+  font-weight: bold;
+}
+  </pre>
+
+  <p>القيم الممكنة:</p>
+  <ul>
+    <li><code>normal</code> → عادي</li>
+    <li><code>bold</code> → سميك</li>
+    <li>أرقام زي <code>100</code> لحد <code>900</code> لتحديد السماكة بالضبط</li>
+  </ul>
+
+  <hr>
+
+  <h2>🖋️ 5. خاصية <code>font-style</code></h2>
+  <p>بتستخدم علشان تميل الخط.</p>
+
+  <pre style="direction: ltr;">
+p {
+  font-style: italic;
+}
+  </pre>
+
+  <p>القيم الممكنة: <code>normal</code>، <code>italic</code>، <code>oblique</code>.</p>
+
+  <hr>
+
+  <h2>📏 6. خاصية <code>line-height</code></h2>
+  <p>بتحدد المسافة الرأسية بين السطور.</p>
+
+  <pre style="direction: ltr;">
+p {
+  line-height: 1.8;
+}
+  </pre>
+
+  <p>لو القيمة رقم بدون وحدة (زي <code>1.8</code>) فهي بتضرب في حجم الخط.</p>
+
+  <hr>
+
+  <h2>🧭 7. خاصية <code>text-align</code></h2>
+  <p>بتحدد محاذاة النص داخل العنصر.</p>
+
+  <pre style="direction: ltr;">
+p {
+  text-align: center;
+}
+  </pre>
+
+  <p>القيم الممكنة: <code>left</code>، <code>right</code>، <code>center</code>، <code>justify</code>.</p>
+
+  <hr>
+
+  <h2>🔗 8. خاصية <code>text-decoration</code></h2>
+  <p>بتضيف أو تشيل خطوط من النص (زي الخط السفلي).</p>
+
+  <pre style="direction: ltr;">
+a {
+  text-decoration: none;
+}
+  </pre>
+
+  <p>القيم الممكنة:</p>
+  <ul>
+    <li><code>none</code> → بدون أي خطوط</li>
+    <li><code>underline</code> → خط تحت النص</li>
+    <li><code>overline</code> → خط فوق النص</li>
+    <li><code>line-through</code> → خط في منتصف النص</li>
+  </ul>
+
+  <hr>
+
+  <h2>🔠 9. خاصية <code>text-transform</code></h2>
+  <p>بتتحكم في طريقة عرض الحروف (كابتل أو صغيرة).</p>
+
+  <pre style="direction: ltr;">
+p {
+  text-transform: uppercase;
+}
+  </pre>
+
+  <p>القيم الممكنة:</p>
+  <ul>
+    <li><code>uppercase</code> → كل الحروف كابتل</li>
+    <li><code>lowercase</code> → كل الحروف صغيرة</li>
+    <li><code>capitalize</code> → أول حرف من كل كلمة كابتل</li>
+  </ul>
+
+  <hr>
+
+  <h2>🔡 10. خاصية <code>letter-spacing</code></h2>
+  <p>بتتحكم في المسافة بين كل حرف والتاني.</p>
+
+  <pre style="direction: ltr;">
+p {
+  letter-spacing: 2px;
+}
+  </pre>
+
+  <hr>
+
+  <h2>🗣️ 11. خاصية <code>word-spacing</code></h2>
+  <p>بتتحكم في المسافة بين كل كلمة والتانية.</p>
+
+  <pre style="direction: ltr;">
+p {
+  word-spacing: 6px;
+}
+  </pre>
+
+  <hr>
+
+
+
+
+
+
+</div>
+
+
+<!--  درس: CSS Box Model (مع صور) -->
+<div style="margin-top:40px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.05); direction:rtl; font-family: 'Segoe UI', Tahoma, sans-serif; color:#222;">
+
+  <h1>📦 شرح CSS Box Model</h1>
+
+  <!-- صورة توضيحية للـ Box Model -->
+  <div style="text-align:center; margin:18px 0;">
+    <img src="margin.jpeg" alt="مخطط توضيحي للـ CSS Box Model (Content, Padding, Border, Margin)" style="max-width:100%; height:auto; border-radius:8px; border:1px solid #eee;">
+    <p style="font-size:14px; color:#666; margin-top:8px;">شكل مبسّط يوضح الـ Box Model: Content → Padding → Border → Margin</p>
+  </div>
+
+  <p>
+    كل عنصر في الصفحة بيتعامل معاه المتصفح كـ "صندوق" (box). الصندوق ده بيتكوّن من 4 طبقات من الداخل للخارج:
+  </p>
+
+  <ol>
+    <li><b>Content</b> — المكان اللى فيه النص أو الصورة أو المحتوى.</li>
+    <li><b>Padding</b> — المسافة الداخلية بين المحتوى وحدود العنصر (Border).</li>
+    <li><b>Border</b> — حدود العنصر المرئية (لو متعرّفة).</li>
+    <li><b>Margin</b> — المسافة الخارجية بين العنصر والعناصر التانية حوله.</li>
+  </ol>
+
+  <hr>
+
+  <h2>1) <code>padding</code> — المسافة الداخلية</h2>
+  <p>بيزود مساحة حول المحتوى داخل العنصر. مش بيأثر على العناصر التانية خارج العنصر.</p>
+
+  <pre style="direction: ltr;">
+/* مفرد */
+.box { padding: 20px; }
+
+
+/* shorthand: top right bottom left */
+.box { padding: 10px 15px 10px 15px; }
+
+
+/* اختصارات شائعة */
+.box { padding: 10px 20px; } /* top/bottom = 10px ; right/left = 20px */
+.box { padding: 10px 20px 30px; } /* top=10 right/left=20 bottom=30 */
+  </pre>
+
+  <p>ملاحظات:</p>
+  <ul>
+    <li>القيمة تقبل <code>px</code>, <code>em</code>, <code>rem</code>, <code>%</code>.</li>
+    <li><code>padding</code> يزداد داخلياً — ينمو الصندوق (إلا لو استخدمت <code>box-sizing</code> بـ <code>border-box</code>، شرح لاحقًا).</li>
+  </ul>
+
+  <hr>
+
+  <h2>2) <code>border</code> — الحدود</h2>
+  <p>الحدود هي الخط اللي حوالين العنصر. ليها خواص منفصلة لكن نقدر نكتبها باختصار.</p>
+
+  <pre style="direction: ltr;">
+/* كامل */
+.box {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #333;
+}
+
+
+/* shorthand */
+.box {
+  border: 2px solid #333;
+}
+
+
+
+/* border per-side */
+
+.box {
+  border-top: 4px dashed red;
+  border-right: 0;
+}
+  </pre>
+
+  <p>ملاحظات:</p>
+  <ul>
+    <li>القيم الشائعة للـ <code>border-style</code>: <code>none</code>, <code>solid</code>, <code>dashed</code>, <code>dotted</code>, <code>double</code>...</li>
+    <li>لو ما كتبتش <code>border-style</code> فالحدود مش هتبان حتى لو كتبت سُمك ولون.</li>
+  </ul>
+
+  <hr>
+
+  <h2>3) <code>border-radius</code> — تدوير الزوايا</h2>
+  <p>بتخلّي الزوايا مدورة بدل زاوية حادة.</p>
+
+  <pre style="direction: ltr;">
+.box { border-radius: 8px; }
+
+/* اختصارات */
+
+.box { border-radius: 10px 5px 10px 5px; } /* top-left top-right bottom-right bottom-left */
+.box { border-radius: 50%; } /* لجعل عنصر مربع يتحول لدائرة */
+  </pre>
+
+  <p>ملاحظات:</p>
+  <ul>
+    <li>يمكن تزويد كل زاوية بقيمة مختلفة.</li>
+    <li>نسبة % تكون مفيدة لصنع دوائر (مثلاً 50%).</li>
+  </ul>
+
+  <hr>
+
+  <h2>4) <code>margin</code> — المسافة الخارجية</h2>
+  <p>بتحدد المسافة بين العنصر والعناصر التانية (الخارجية).</p>
+
+  <pre style="direction: ltr;">
+/* مفرد */
+.box { margin: 20px; }
+
+<b>**************************</b>
+
+
+/* shorthand: top right bottom left */
+
+.box { margin: 10px 15px 10px 15px; }
+
+<b>**************************</b>
+
+
+/* اختصارات شائعة */
+
+.box { margin: 10px 0; } /* تباعد عمودي فقط */
+  </pre>
+
+  <p>ملاحظات مهمة:</p>
+  <ul>
+    <li>قد يحدث <b>collapse</b> للـ margins بين عناصر عمودية (مثلاً margin-top لعنصر و margin-bottom لعنصر فوقه ممكن يندمجوا).</li>
+    <li><code>margin</code> لا يتضمن الحدود أو البادينج — هو المسافة الخارجية فقط.</li>
+  </ul>
+
+  <hr>
+
+  <h2>5) <code>margin: auto</code> — المحاذاة الأفقية المركزية</h2>
+  <p>لو عايز تضع عنصر عرض ثابت في منتصف الحاوية، تستخدم <code>margin: 0 auto;</code> أو <code>margin-left/right: auto</code>.</p>
+
+  <pre style="direction: ltr;">
+.container {
+  width: 800px;
+  margin: 0 auto; /* top/bottom = 0 ; left/right = auto => العنصر يتوسّط أفقياً */
+}
+  </pre>
+
+  <p>ملاحظات:</p>
+  <ul>
+    <li>لازم يكون لدى العنصر عرض واضح (مثل <code>width</code>) علشان <code>auto</code> يشتغل للمركزة الأفقية.</li>
+    <li>في تخطيطات فليكس أو جريد غالبًا يكون أفضل استخدام خصائص محاذاة خاصة (مثل <code>justify-content</code> أو <code>place-items</code>).</li>
+  </ul>
+
+  <hr>
+
+  <h2>6) <code>box-sizing</code> — إزاي بنحسب أبعاد الصندوق</h2>
+  <p>بصورة افتراضية المتصفح بيستخدم <code>content-box</code> (يعني الـ <code>width</code> و <code>height</code> تخصّ المحتوى فقط — والـ padding والـ border يزيدوا على الحجم الكلي). اللي بنستخدمه غالبًا في التصميم الحديث هو <code>border-box</code>، لأنه يجعل الحسابات أسهل.</p>
+
+  <pre style="direction: ltr;">
+/* الافتراضي  default */
+
+.box { box-sizing: content-box; /* width/height = content only */ }
+
+<b>**************************</b>
+
+/* المفضل عادة */
+
+.box { box-sizing: border-box; /* width/height تشمل padding و border */ }
+
+<b>**************************</b>
+
+
+  </pre>
+
+  <p>توضيح عملي:</p>
+  <ul>
+    <li>لو عندك <code>width: 200px; padding: 20px; border: 5px solid;</code></li>
+    <li>مع <code>content-box</code> → العرض الكلي = 200 + 20*2 + 5*2 = 250px</li>
+    <li>مع <code>border-box</code> → العرض الكلي = 200px (والمحتوى يتقلص داخل الـ 200 ليُشمل الـ padding والـ border)</li>
+  </ul>
+
+  <!-- صورة توضيحية لفرق المحتوى -->
+  <div style="text-align:center; margin:18px 0;">
+    <!-- غيّر src إلى مسار صورتك الحقيقية -->
+    <img src="images/box-sizing.png" alt="مقارنة بين content-box و border-box" style="max-width:100%; height:auto; border-radius:8px; border:1px solid #eee;">
+    <p style="font-size:14px; color:#666; margin-top:8px;">فرق بين <code>content-box</code> و <code>border-box</code> — لاحظ اختلاف العرض الكلي.</p>
+  </div>
+
+  <hr>
+
+  <h2>خلاصة سريعة (Quick Cheatsheet)</h2>
+  <pre style="direction: ltr;"> 
+/* padding shorthand */
+
+padding: top right bottom left;
+
+<b>**************************</b>
+
+/* margin shorthand */
+
+margin: top right bottom left;
+
+<b>**************************</b>
+
+
+/* border shorthand */
+
+border: 2px solid #333;
+
+<b>**************************</b>
+
+
+/* border-radius shorthand */
+
+border-radius: 10px 5px 10px 5px;
+
+<b>**************************</b>
+
+
+/* center block horizontally */
+
+.element { width: 600px; margin: 0 auto; }
+
+<b>**************************</b>
+
+
+/* box-sizing common rule */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+  </pre>
+
+  <p style="text-align:center; font-weight:bold; color:#444; margin-top:18px;">
+     نهاية درس الـ Box Model — جرب تغير القيم وشوف النتيجة ماتقعدش تقرأ وخلاص!
+  </p>
+
+</div>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
+
+
+
+
