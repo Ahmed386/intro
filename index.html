@@ -1189,6 +1189,394 @@ border-radius: 10px 5px 10px 5px;
 </div>
 
 
+<div style="direction: rtl; font-family: Tahoma, Arial, sans-serif; 
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 22px 24px; margin: 30px auto 40px;
+            max-width: 1050px; border-radius: 14px;
+            background: linear-gradient(135deg,#e6f4ff,#f0fbf3);
+            border: 2px solid rgba(30,144,255,0.18);
+            box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+            color: #063a6f; font-size: 26px; font-weight: 700;">
+  نهاية <span style="color:#d23030; margin:0 8px;">Lesson 3</span><br>
+  <span style="font-size:18px; font-weight:600; color:#064e3b; display:block; margin-top:8px;">
+    بالتوفيق ليكوا جميعًا 
+  </span>
+</div>
+
+<br>
+
+
+<!--  درس: Selectors + Lists + Gradients + Display + Float -->
+<div style="margin-top:40px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.05); direction:rtl; font-family:'Segoe UI', Tahoma, sans-serif; color:#222;">
+
+  <h1> ركز وطبق فيه امتحان بكره  Tagname, Class, ID, Lists, Gradients, Display, Float</h1>
+
+  <!--  tagname / class / id -->
+  <h2>1) محددات العناصر (Selectors): Tagname / Class / ID</h2>
+  <p>الـ <b>Selectors</b> هي اللي بنستخدمها علشان نختار العنصر اللي هنطبّق عليه تنسيق CSS.</p>
+
+  <pre style="direction: ltr;">
+
+/* Tagname selector — يختار كل العناصر من نفس النوع */
+
+
+p {
+  color: blue;
+}
+
+
+
+
+/* Class selector — بنستخدم النقطة (.) */
+.intro {
+  font-size: 18px;
+  color: darkgreen;
+}
+
+
+
+
+/* ID selector — بنستخدم علامة # */
+#main-title {
+  color: red;
+  font-weight: bold;
+}
+
+  </pre>
+
+<br>
+
+
+  <p><b>ملاحظات:</b></p>
+  <ul>
+    <li><code>tagname</code> يطبّق على كل العناصر من نفس النوع (مثلاً كل &lt;p&gt;).</li>
+    <li><code>class</code> ممكن تستخدمها لأكثر من عنصر.</li>
+    <li><code>id</code> لازم تكون فريدة (واحدة بس في الصفحة).</li>
+  </ul>
+
+
+  <hr>
+
+  <!-- Lists -->
+  <h2>2) خصائص القوائم (List Styles)</h2>
+
+  <p>القوائم ممكن تكون نقطية (ul) أو رقمية (ol)، وبتقدر تتحكم في شكل النقط أو الأرقام.</p>
+
+  <pre style="direction: ltr;">
+
+ul {
+  list-style-type: square; /* circle, disc, none */
+}
+
+
+ol {
+  list-style-type: upper-roman; /* decimal, lower-alpha, etc */
+}
+
+
+/* استخدام صورة بدلاً من النقط */
+
+ul {
+  list-style-image: url('https://cdn-icons-png.flaticon.com/512/25/25694.png');
+}
+
+
+/* تحديد مكان العلامة */
+ul {
+  list-style-position: inside; /* or outside */
+}
+  </pre>
+
+  <ul style="list-style-type: square;">
+    <li>قائمة بنقط مربعة</li>
+    <li>عنصر تاني</li>
+  </ul>
+
+  <p><b>ملاحظات:</b></p>
+  <ul>
+    <li><code>list-style-type</code>: لتغيير شكل العلامة (circle, square, none...)</li>
+    <li><code>list-style-image</code>: لإضافة صورة كعلامة.</li>
+    <li><code>list-style-position</code>: لتحديد مكان العلامة داخل أو خارج النص.</li>
+  </ul>
+
+  <hr>
+
+  <!--  Gradients -->
+  <h2>3) التدرجات اللونية (CSS Gradients)</h2>
+
+  <p>التدرجات بتخلّي الخلفية تنتقل بين أكثر من لون بشكل جميل بدون صورة.</p>
+
+  <h3> Linear Gradient (خطي)</h3>
+  <div style="width:100%; height:100px; background:linear-gradient(to right, #2193b0, #6dd5ed); border-radius:8px;"></div>
+  <pre style="direction: ltr;">
+
+/* من اليسار لليمين */
+background: linear-gradient(to right, #2193b0, #6dd5ed);
+
+<b>***********************</b>
+
+/* من الأعلى للأسفل */
+background: linear-gradient(to bottom, red, yellow);
+  </pre>
+
+  <h3> Radial Gradient (دائري)</h3>
+  <div style="width:100%; height:300px; background:radial-gradient(circle, #ff9a9e, #fad0c4); border-radius:8px;"></div>
+  <pre style="direction: ltr;">
+
+background: radial-gradient(circle, #ff9a9e, #fad0c4);
+
+  </pre>
+
+  <p><b>الفرق:</b></p>
+  <ul>
+    <li><b>linear-gradient</b>: تدرج في اتجاه مستقيم.</li>
+    <li><b>radial-gradient</b>: تدرج من المركز للخارج (دائري).</li>
+  </ul>
+
+  <hr>
+
+  <!-- Display -->
+  <h2>4) خاصية <code>display</code></h2>
+
+  <p>تتحكم في طريقة عرض العنصر على الصفحة:</p>
+
+  <pre style="direction: ltr;">
+/* inline — في نفس السطر */
+span { display: inline; }
+
+
+
+/* block — في سطر جديد ويأخذ عرض الحاوية */
+div { display: block; }
+
+
+
+/* inline-block — في نفس السطر لكن يمكن تحديد الطول والعرض */
+img { display: inline-block; }
+
+
+
+/* none — يخفي العنصر بالكامل */
+.hidden { display: none; }
+
+
+  </pre>
+
+ 
+
+  <hr>
+
+  <!--  Float -->
+  <h2>5) خاصية <code>float</code></h2>
+
+  <p>تُستخدم لتحريك العناصر لليسار أو اليمين داخل الحاوية. كانت تُستخدم زمان في تنسيقات الصفحات قبل flex و grid.</p>
+
+  <pre style="direction: ltr;">
+img {
+  float: right;
+  margin: 10px;
+}
+  </pre>
+
+  <div style="border:1px solid #ddd; padding:10px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fronalpstock_big.jpg/320px-Fronalpstock_big.jpg" 
+         alt="float example" style="float:left; width:180px; margin:10px; border-radius:8px;">
+          
+         <div style="clear: both;"></div>
+         
+    <p>
+      في المثال ده الصورة استخدمت <code>float: right;</code> علشان النص يلتف حواليها.  
+      خاصية <code>float</code> كانت مفيدة جدًا زمان، لكن النهارده نستخدم <b>Flexbox</b> أو <b>Grid</b> للتخطيط الحديث.
+    </p>
+  </div>
+
+  <p><b>القيم الممكنة:</b></p>
+  <ul>
+    <li><code>left</code> — تحريك العنصر لليسار.</li>
+    <li><code>right</code> — تحريكه لليمين.</li>
+    <li><code>none</code> — الإلغاء الافتراضي.</li>
+  </ul>
+
+  <p><b>ملاحظة:</b> عند استخدام <code>float</code> يجب  إضافة <code>clear: both;</code> للعنصر التالي لتجنب تداخل العناصر.</p>
+
+  <br>
+
+  <video src="videoplayback.mp4" controls></video>
+  
+  <br>
+
+  <b>شرح تفصيلي لل float </b>
+<br>
+
+
+
+<br>
+  <video src="float.mp4" controls></video>
+  <hr>
+
+
+
+
+</div>
+
+<hr>
+
+
+<!--  درس: position & z-index -->
+<div style="margin-top:40px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.05); direction:rtl; font-family:'Segoe UI', Tahoma, sans-serif; color:#222;">
+
+  <h1> شرح <code>position</code> و <code>z-index</code> (بسيط ومباشر)</h1>
+
+  <p>الخاصية <code>position</code> بتحدد طريقة وضع العنصر داخل الصفحة — هل يكون جزء من تدفق المحتوى الطبيعي ولا يتأثر، وهل ممكن نحركه بالنسبة للحاوية أو للنافذة.</p>
+
+  <hr>
+
+  <h2>أنواع <code>position</code> الرئيسية</h2>
+
+  <h3>1) <code>position: static;</code> (الافتراضي)</h3>
+  <p>العنصر بيتصرف بشكل طبيعي في تدفق الصفحة — ماينفعش نغيّر مكانه باستخدام <code>top/right/bottom/left</code>. معظم العناصر افتراضيًا <code>static</code>.</p>
+
+  <pre style="direction: ltr;">
+/* هذا هو السلوك الافتراضي */
+.box { position: static; }
+  </pre>
+
+  <hr>
+
+  <h3>2) <code>position: relative;</code></h3>
+  <p>العنصر يظل في مكانه الطبيعي في التدفق، لكن ممكن نحرّكه بالنسبة لموقعه الأصلي بواسطة <code>top/right/bottom/left</code>. المساحة الأصلية تبقى محفوظة (يعني العناصر التانية ما هتتحركش لتعويضه).</p>
+
+  <pre style="direction: ltr;">
+.relative-box {
+  position: relative;
+  top: 10px;    /* يتحرك 10px لأسفل بالنسبة لمكانه الأصلي */
+  left: 20px;   /* يتحرك 20px لليمين */
+}
+  </pre>
+
+  <p>⟶ مفيد عشان تعمل إزاحة بسيطة أو لتكون حاوية مرجعية لعناصر مطلقة داخلها.</p>
+
+  <hr>
+
+  <h3>3) <code>position: absolute;</code></h3>
+  <p>العنصر يُخرَج من التدفق الطبيعي (يعني مكانه لا يحجز مساحة)، ونحركه باستخدام <code>top/right/bottom/left</code> بالنسبة لأقرب سلف (ancestor) له يمتلك <code>position</code> غير <code>static</code> (مثل <code>relative</code> أو <code>absolute</code> أو <code>fixed</code>). إذا مفيش سلف مُحدد، التحرك يكون بالنسبة للـ <code>viewport الشاشه كلها </code> (صفحة المتصفح).</p>
+
+  <pre style="direction: ltr;">
+.container { position: relative; } /* حاوِية أم */
+
+.abs-box {
+  position: absolute;
+  top: 10px;    /* 10px من أعلى الحاوية الام */
+  right: 15px;  /* 15px من اليمين */
+}
+  </pre>
+
+  <p>⟶ مفيد لو عايز عنصر يتحرّك فوق محتوى تاني ويحدد موقعه بدقة داخل الحاوية.</p>
+
+  <hr>
+
+  <h3>4) <code>position: fixed;</code></h3>
+  <p>العنصر ثابت بالنسبة للنافذة (viewport) — يعني لو عملت scroll، العنصر يفضل ظاهر في نفس المكان. يُستخدم لعمل شريط ثابت أعلى الصفحة.</p>
+
+  <pre style="direction: ltr;">
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* غالبًا نستخدم z-index علشان يبقى فوق كل حاجة */
+}
+  </pre>
+
+  <hr>
+
+  <h3>5) <code>position: sticky;</code></h3>
+  <p>مزيج بين <code>relative</code> و <code>fixed</code>: العنصر يتصرف كـ <code>relative</code> حتى تصل الصفحة لموضع معين، بعدها "يلتصق" (becomes fixed) داخل الحاوية عند تلك النقطة. لازم تحدد اتجاه مثل <code>top</code>.</p>
+
+  <pre style="direction: ltr;">
+.header {
+  position: sticky;
+  top: 0; /* عندما يصل رأس العنصر إلى أعلى النافذة يثبت */
+}
+  </pre>
+
+  <p>⟶ مفيد لعناوين أعمدة أو قوائم تحتاج تثبيت جزئي أثناء التمرير.</p>
+
+  <hr>
+
+  <h2>أمثلة عملية (HTML + CSS) — جرّبهم مباشرة</h2>
+
+  <h3>مثال: relative (مرجعية) و absolute (عنصر فوقي)</h3>
+  <pre style="direction: ltr;">
+&lt;div class="card" style="position:relative; width:300px; height:150px; background:#f0f0f0; padding:15px;"&gt;
+  &lt;p&gt;محتوى الكارت هنا&lt;/p&gt;
+  &lt;button style="position:absolute; bottom:10px; right:10px;"&gt;زر فوقي&lt;/button&gt;
+&lt;/div&gt;
+  </pre>
+
+  <p>الزر فوقي لأننا استخدمنا <code>position:absolute</code> داخل حاوية <code>position:relative</code>.</p>
+
+  <hr>
+
+  <h3>مثال: fixed (شريط علوي ثابت)</h3>
+  <pre style="direction: ltr;">
+
+&lt;div style="position:fixed; top:0; left:0; width:100%; background:#004aad; color:#fff; padding:12px; text-align:center;"&gt;
+  شريط ثابت في أعلى الصفحة
+
+&lt;/div&gt;
+  </pre>
+
+  <hr>
+
+  <h3>مثال: sticky (يلتصق عند السكرول : لما انزل تحت في الصفحه هوا يبقا لازم معايا فوق في الصفحه كده)</h3>
+
+  <pre style="direction: ltr;">
+&lt;div style="height:1000px; padding-top:60px;"&gt;
+  &lt;h2 style="position:sticky; top:10px; background:#fff; padding:8px;"&gt;
+    عنوان يلصق عند الوصول
+  &lt;/h2&gt;
+  &lt;p&gt;باقي المحتوى هنا...&lt;/p&gt;
+&lt;/div&gt;
+  </pre>
+
+  <hr>
+
+  <h2> شرح <code>z-index</code> (الترتيب الطبقي)</h2>
+
+  <p><code>z-index</code> يتحكم في ترتيب تراكب العناصر على المحور z — أي أي عنصر يظهر فوق التاني عندما يتداخلوا. كلما كانت القيمة أكبر، كلما ظهر العنصر فوق العناصر ذات القيم الأصغر.</p>
+
+  <p><b>ملاحظات مهمة:</b></p>
+  <ul>
+    <li>يعمل <code>z-index</code> فقط على العناصر التي لديها <code>position</code> غير <code>static</code> (مثلاً <code>relative</code>, <code>absolute</code>, <code>fixed</code>, أو <code>sticky</code> في بعض المتصفحات).</li>
+    <li>القيمة ممكن تكون سالبة أيضًا (مثلاً <code>-1</code>) لتضع العنصر خلف غيره.</li>
+    <li>المفهوم الأهم: <b>stacking context</b> — بعض الخصائص تنشئ سياق طبقي جديد (مثل <code>position</code> مع <code>z-index</code>، أو خصائص مثل <code>opacity</code> أقل من 1، <code>transform</code>، وبعض خصائص CSS الأخرى). داخل كل stacking context القيم تُقيّم محليًّا. هذا يعني إن عنصرًا بقيمة z أعلى داخل stacking context جديد قد يظل تحت عنصر من سياق خارجي أعلى.</li>
+  </ul>
+
+  <hr>
+
+  <h3>مثال بسيط على <code>z-index</code></h3>
+  <pre style="direction: ltr;">
+.box1 { position: relative; z-index: 1; background: rgba(0,0,255,0.6); width:200px; height:120px; }
+.box2 { position: relative; z-index: 2; background: rgba(255,0,0,0.6); width:150px; height:100px; margin-top:-60px; }
+  </pre>
+
+  <p>العنصر <code>.box2</code> (z-index:2) سيظهر فوق <code>.box1</code> (z-index:1).</p>
+
+  <hr>
+
+
+  <hr>
+
+  <h2>نصائح عملية وسريعة</h2>
+  <ul>
+    <li>لو عايز تحط عنصر فوق كل حاجة بسرعة: اعطيه <code>position: fixed</code> أو <code>position: absolute</code> مع <code>z-index</code> كبير، لكن انتبه للـ stacking contexts.</li>
+    <li>استخدم <code>position: relative</code> كـ "مرجعية" للحاويات بدل ما تعتمد على الـ viewport للعناصر .</li>
+  </ul>
+
+
+</div>
+
 
 
 
