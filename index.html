@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>شرح Web و HTML</title>
+  <title>شرح Web </title>
   <style>
 
     html, body {
@@ -56,6 +56,11 @@
   </style>
 </head>
 <body>
+
+
+  <b>
+    eng\ Ahmed ghoneim 
+  </b>
   <pre>
 يعني ايه web ? www => World Wide Web -- مين فتح فيس بوك او يوتيوب او اي موقع من الكمبيوتر او اللاب توب او حتى من جوجل كروم الي على الموبيل ؟ --- 
 
@@ -1444,7 +1449,7 @@ img {
   <hr>
 
   <h3>2) <code>position: relative;</code></h3>
-  <p>العنصر يظل في مكانه الطبيعي في التدفق، لكن ممكن نحرّكه بالنسبة لموقعه الأصلي بواسطة <code>top/right/bottom/left</code>. المساحة الأصلية تبقى محفوظة (يعني العناصر التانية ما هتتحركش لتعويضه).</p>
+  <p>العنصر يظل في مكانه الطبيعي في الworkflow لكن ممكن نحرّكه بالنسبة لموقعه الأصلي بواسطة <code>top/right/bottom/left</code>. المساحة الأصلية تبقى محفوظة (يعني العناصر التانية ما هتتحركش لتعويضه).</p>
 
   <pre style="direction: ltr;">
 .relative-box {
@@ -1459,7 +1464,7 @@ img {
   <hr>
 
   <h3>3) <code>position: absolute;</code></h3>
-  <p>العنصر يُخرَج من التدفق الطبيعي (يعني مكانه لا يحجز مساحة)، ونحركه باستخدام <code>top/right/bottom/left</code> بالنسبة لأقرب سلف (ancestor) له يمتلك <code>position</code> غير <code>static</code> (مثل <code>relative</code> أو <code>absolute</code> أو <code>fixed</code>). إذا مفيش سلف مُحدد، التحرك يكون بالنسبة للـ <code>viewport الشاشه كلها </code> (صفحة المتصفح).</p>
+  <p>العنصر يُخرَج من الworkflow الطبيعي (يعني مكانه لا يحجز مساحة)، ونحركه باستخدام <code>top/right/bottom/left</code> بالنسبة لأقرب سلف (ancestor) له يمتلك <code>position</code> غير <code>static</code> (مثل <code>relative</code> أو <code>absolute</code> أو <code>fixed</code>). إذا مفيش سلف مُحدد، التحرك يكون بالنسبة للـ <code>viewport الشاشه كلها </code> (صفحة المتصفح).</p>
 
   <pre style="direction: ltr;">
 .container { position: relative; } /* حاوِية أم */
@@ -1598,6 +1603,309 @@ img {
     بالتوفيق ليكوا جميعًا 
   </span>
 </div>
+
+
+<hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0077ff, #00c6ff); box-shadow:0 0 8px rgba(0,118,255,0.4);">
+
+
+
+<br>
+
+
+
+
+
+
+<!--  درس HTML Semantic Tags -->
+<div class="lesson">
+
+  <h1 style="text-align: center; color: black;">Lesson 5 <span style="color: #e72907;"> شرح ال semantic tags و ال media quiries </span></h1>
+ 
+  <h2>Semantic tags are HTML elements that clearly describe their meaning to both the browser and the developer.
+They tell what kind of content they contain — for example, &lt;header&gt; represents the top section, &lt;article&gt; represents an independent piece of content, and &lt;footer&gt; represents the bottom section.</h2>
+  <br>
+
+  <h2>📘 شرح HTML Semantic Tags</h2>
+
+  <p>
+    كلمة <strong>Semantic</strong> معناها "دلالي" أو "له معنى"،  
+    يعني الـ <strong>Semantic Tags</strong> هي العناصر في HTML اللي بتوضح <u>معنى المحتوى</u> اللي جواها مش مجرد شكله.
+  </p>
+
+  <p>
+    بدل ما نستخدم ديفات كتير بدون معنى (<code>&lt;div&gt;</code>)،  
+    نستخدم تاج بيوضح الغرض منه زي <code>&lt;header&gt;</code> أو <code>&lt;footer&gt;</code>.
+  </p>
+
+  <hr>
+
+  <h3> أمثلة على Semantic Tags</h3>
+  <ul>
+    <li><code>&lt;header&gt;</code> — رأس الصفحة أو القسم (بيحتوي على شعار، قائمة، أو عنوان)</li>
+    <li><code>&lt;nav&gt;</code> — جزء التنقل في الموقع اللينكات (روابط للقوائم)</li>
+    <li><code>&lt;main&gt;</code> — الجزء الأساسي من المحتوى</li>
+    <li><code>&lt;section&gt;</code> — قسم من المحتوى</li>
+    <li><code>&lt;article&gt;</code> — مقالة أو محتوى مستقل</li>
+    <li><code>&lt;aside&gt;</code> — محتوى جانبي زي إعلانات أو روابط إضافية</li>
+    <li><code>&lt;footer&gt;</code> — اخر حاجه في الصفحة بيكون تحت خالص هبقا اوريكوا مثال  (معلومات، حقوق، روابط تواصل)</li>
+  </ul>
+
+  <hr>
+
+  <h3>مثال عملي بالعربية</h3>
+  <pre style="direction: ltr;">
+&lt;header&gt;
+  &lt;h1&gt;موقعي التعليمي&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;الرئيسية&lt;/a&gt;
+    &lt;a href="#"&gt;الدروس&lt;/a&gt;
+    &lt;a href="#"&gt;تواصل معنا&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;article&gt;
+      &lt;h2&gt;أول درس&lt;/h2&gt;
+      &lt;p&gt;هذا هو أول درس عن HTML Semantic Tags.&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+  &lt;p&gt;إعلانات أو روابط مفيدة&lt;/p&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;حقوق النشر © 2025 جميع الحقوق محفوظة.&lt;/p&gt;
+&lt;/footer&gt;
+  </pre>
+
+  <hr>
+
+  <h3> Example in English</h3>
+  <pre style="direction: ltr;">
+&lt;header&gt;
+  &lt;h1&gt;My Learning Website&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;Lessons&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;article&gt;
+      &lt;h2&gt;First Lesson&lt;/h2&gt;
+      &lt;p&gt;This is our first lesson about HTML Semantic Tags.&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+  &lt;p&gt;Sidebar or extra links&lt;/p&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;© 2025 All rights reserved&lt;/p&gt;
+&lt;/footer&gt;
+  </pre>
+
+  <hr>
+
+  <h3> فائدة استخدام التاجات الدلالية</h3>
+  <ul style="line-height: 2.5rem;">
+    <li>بتخلي الكود منظم وسهل القراءة.</li>
+    <li>بتساعد محركات البحث (SEO) تفهم محتوى موقعك بشكل أفضل.</li>
+    <li>بتحسن قابلية الوصول (accessibility) لأجهزة قراءة الشاشة.</li>
+
+  </ul>
+
+  <img src="benefit of semantic.jpg" style="width: 100%;" alt="">
+
+  <hr>
+  <p> *** نهاية شرح ال semantic tags — جرب تكتب صفحة HTML باستخدام Semantic Tags بدل الـ div العادية</p>
+
+  <br>
+
+    <img src="semantic.jpg" style="width: 100%;" alt="">
+
+
+
+</div>
+
+
+<hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #b9fa05, #b0ce05); box-shadow:0 0 8px rgba(0,118,255,0.4);">
+
+
+<div style="background-color:#f5f5f5; padding:20px; border-radius:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); font-family:Arial, sans-serif; line-height:1.8;">
+
+  <h2 style="color:#0078d7; text-align:center;">📱 Media Queries</h2>
+
+  <hr style="border:none; height:4px; background:linear-gradient(to right, #0078d7, #00bfa5); border-radius:2px; width:80%; margin:10px auto;">
+
+  <h3 style="color:#333;">🔹 تعريف Media Queries :</h3>
+  <p style="color:#444; font-size:16px;">
+    <b>Media Queries</b> are a feature in CSS used to apply different styles depending on the device’s characteristics, such as screen width, height, or orientation.  
+    They help make your website <b>responsive</b>, meaning it looks good on all devices — phones, tablets, and computers.
+  </p>
+
+  <h3 style="color:#333;">🔹 التعريف بالعربي:</h3>
+  <p style="color:#444; font-size:16px;">
+    <b>Media Query</b> هي خاصية في CSS بتخليك تتحكم في شكل وتصميم الموقع حسب نوع الجهاز أو حجم الشاشة،  
+    زي مثلاً إنك تغيّر شكل الموقع في الموبايل عن الكمبيوتر.  
+    وده اللي بنسميه <b>تصميم متجاوب (Responsive Design)</b>.
+  </p>
+
+  <h3 style="color:#333;">🔹 الفائدة:</h3>
+  <ul style="color:#444; font-size:16px; list-style-type:circle; padding-left:20px;">
+    <li>تخلي الموقع مناسب لكل الشاشات (موبايل - تابلت - كمبيوتر).</li>
+    <li>تحسن تجربة المستخدم وتمنع التمرير الأفقي.</li>
+    <li>تساعد في تحسين SEO لأن جوجل بيفضّل المواقع المتجاوبة.</li>
+  </ul>
+
+  <h3 style="color:#333;"> مثال :</h3>
+  <pre style="background:#222; direction: ltr ; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px;">
+@media (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 الشرح بالعربي:</h3>
+  <p style="color:#444; font-size:16px;">
+    في المثال ده، لما يكون عرض الشاشة أقل من <b>768px</b> (يعني في الموبايل)، الخلفية هتبقى <b>فاتحة زرقا</b>.  
+    لكن لما تكون الشاشة أكبر (زي اللاب أو الكمبيوتر)، الخلفية هتبقى <b>فاتحة خضرا</b>.  
+    يعني الموقع بيتغير حسب حجم الجهاز — وده هو هدف الـ <b>Media Query</b>.
+  </p>
+
+</div>
+
+<div style="background-color:#f5f5f5; padding:20px; border-radius:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); font-family:Arial, sans-serif; line-height:1.8;">
+
+  <h2 style="color:#0078d7; text-align:center;">📱 Media Queries </h2>
+
+  <hr style="border:none; height:4px; background:linear-gradient(to right, #0078d7, #00bfa5); border-radius:2px; width:80%; margin:10px auto;">
+
+  <h3 style="color:#333;">🔹 كيف تعمل الـ Media Queries:</h3>
+  <p style="color:#444; font-size:16px;">
+    الـ <b>Media Query</b> بتشتغل عن طريق اختبار خصائص الجهاز اللي المستخدم فاتح منه الموقع،  
+    زي مثلاً: <b>عرض الشاشة (width)</b>، أو <b>الارتفاع (height)</b>، أو حتى <b>اتجاه الشاشة (orientation)</b>.  
+    لو الشرط اتحقق، المتصفح بيطبّق الأكواد اللي جواها.
+  </p>
+
+  <h3 style="color:#333;">🔹 الصيغة العامة (General Syntax):</h3>
+  <pre style="background:#222; direction: ltr ;color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px;">
+@media (شرط معين) {
+  /* CSS Styles هنا */
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 أمثلة على أنواع الشروط:</h3>
+  <ul style="color:#444; font-size:16px; list-style-type:circle; padding-left:20px;">
+    <li><b>(max-width: 600px)</b> → يطبق التنسيق لما يكون عرض الشاشة أقل من 600px (موبايل مثلاً).</li>
+    <li><b>(min-width: 768px)</b> → يطبق التنسيق لما يكون العرض أكبر من أو يساوي 768px.</li>
+    <li><b>(orientation: landscape)</b> → يطبق التنسيق لما تكون الشاشة بالوضع الأفقي.</li>
+    <li><b>(orientation: portrait)</b> → يطبق التنسيق لما تكون الشاشة بالوضع العمودي.</li>
+  </ul>
+
+  <h3 style="color:#333;">🔹 مثال عملي متكامل:</h3>
+  <pre style="background:#222;direction: ltr ;color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px;">
+body {
+  background-color: white;
+}
+
+/* للموبايل */
+@media (max-width: 600px) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+/* للتابلت */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-color: lightgoldenrodyellow;
+  }
+}
+
+/* للكمبيوتر */
+@media (min-width: 1025px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 التوضيح بالعربي:</h3>
+  <p style="color:#444; font-size:16px;">
+    في المثال ده، اللون بيتغير حسب الجهاز:
+  </p>
+  <ul style="color:#444; font-size:16px; list-style-type:square; padding-left:20px;">
+    <li><b>موبايل:</b> خلفية حمراء فاتحة (lightcoral).</li>
+    <li><b>تابلت:</b> خلفية صفراء فاتحة.</li>
+    <li><b>كمبيوتر:</b> خلفية خضراء فاتحة.</li>
+  </ul>
+  <p style="color:#444; font-size:16px;">
+    وده مثال واضح إزاي نستخدم <b>Media Queries</b> علشان نخلّي الموقع <b>متجاوب مع كل الأجهزة</b>.
+  </p>
+
+  <h3 style="color:#333;">🔹 ملاحظات مهمة:</h3>
+  <ul style="color:#444; font-size:16px; list-style-type:circle; padding-left:20px;">
+    <li>من الأفضل تبدأ تنسّق موقعك للشاشات الصغيرة (Mobile First) ثم تكبر باستخدام <b>min-width</b>.</li>
+    <li>ممكن تدمج أكثر من شرط باستخدام <b>and</b>، <b>not</b>، أو <b>only</b>.</li>
+    <li>تقدر تستخدم Media Queries كمان في <b>print</b> علشان تتحكم في شكل الصفحة أثناء الطباعة.</li>
+  </ul>
+
+  <h3 style="color:#333;">🔹 مثال على Media Query للطباعة:</h3>
+  <pre style="background:#222; direction: ltr ;color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px;">
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 14pt;
+  }
+}
+  </pre>
+
+  <p style="color:#444; font-size:16px;">
+    الكود ده بيغيّر تنسيق الصفحة لما المستخدم يضغط <b>Ctrl + P</b> للطباعة.
+  </p>
+
+</div>
+
+
+<div style="direction: rtl; font-family: Tahoma, Arial, sans-serif; 
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 22px 24px; margin: 30px auto 40px;
+            max-width: 1050px; border-radius: 14px;
+            background: linear-gradient(135deg,#e6f4ff,#f0fbf3);
+            border: 2px solid rgba(30,144,255,0.18);
+            box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+            color: #063a6f; font-size: 26px; font-weight: 700;">
+  نهاية <span style="color:#d23030; margin:0 8px;">Lesson 5</span><br>
+  <span style="font-size:18px; font-weight:600; color:#064e3b; display:block; margin-top:8px;">
+    بالتوفيق ليكوا جميعًا 
+  </span>
+</div>
+
+<br>
+
+<br>
+
+
+<hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #100252); box-shadow:0 0 8px rgba(0,118,255,0.4);">
+
+
+
 
 </div>
 
