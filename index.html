@@ -1905,11 +1905,361 @@ body {
 <hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #100252); box-shadow:0 0 8px rgba(0,118,255,0.4);">
 
 
+<div style="background-color:#f5f5f5; padding:20px; border-radius:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); font-family:Arial, sans-serif; line-height:1.8;">
 
+  <h2 style="color:#0078d7; text-align:center;"> CSS Flexbox</h2>
+
+  <hr style="border:none; height:4px; background:linear-gradient(to right, #0078d7, #00bfa5); border-radius:2px; width:80%; margin:10px auto;">
+
+  <h3 style="color:#333;">🔹 Definition (English):</h3>
+  <p style="color:#444; font-size:16px;">
+    <b>Flexbox</b> (Flexible Box Layout) is a CSS layout system that helps you easily align, distribute, and arrange elements inside a container — even when their sizes are unknown or dynamic.  
+    It allows elements to automatically adjust their width, height, and order to fit the available space.
+  </p>
+
+  <h3 style="color:#333;">🔹 التعريف بالعربي:</h3>
+  <p style="color:#444; font-size:16px;">
+    <b>Flexbox</b> هو نظام ترتيب في CSS بيسهّل عليك تنسيق العناصر داخل الحاوية (container).  
+    بيسمحلك تتحكم في اتجاه العناصر، وتوزيع المسافات، والمحاذاة، وتكبير أو تصغير العناصر تلقائيًا حسب حجم الشاشة.
+  </p>
+
+  <h3 style="color:#333;">🔹 Structure Example:</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;Box 1&lt;/div&gt;
+  &lt;div class="box"&gt;Box 2&lt;/div&gt;
+  &lt;div class="box"&gt;Box 3&lt;/div&gt;
+&lt;/div&gt;
+  </pre>
+
+  <h3 style="color:#333;">🔹 Basic CSS Example:</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+.container {
+  display: flex;
+  background-color: #f1f1f1;
+}
+
+.box {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+  </pre>
+
+  <p style="color:#444; font-size:16px;">
+    الكود ده بيخلي العناصر جوّه الـ <b>container</b> تظهر جنب بعض بشكل أفقي بدل ما تكون تحت بعض.
+  </p>
+
+  <h3 style="color:#333;">🔹 Main Flexbox Properties:</h3>
+  <ul style="color:#444; font-size:16px; list-style-type:square; padding-left:20px;">
+    <li><b>display: flex;</b> — makes the container a flex container.</li>
+    <li><b>flex-direction:</b> defines the direction of items (row, row-reverse, column, column-reverse).</li>
+    <li><b>justify-content:</b> controls horizontal alignment (start, center, space-between, space-around, space-evenly).</li>
+    <li><b>align-items:</b> controls vertical alignment (start, center, end, stretch).</li>
+    <li><b>flex-wrap:</b> allows items to move to the next line if they don’t fit.</li>
+    <li><b>align-content:</b> controls space between rows when wrapping.</li>
+  </ul>
+
+  <br>
+
+<div style="background-color:#f0f8ff; padding:20px; border-radius:10px; font-family:Arial, sans-serif; line-height:1.8;">
+  <h2 style="color:#0077b6;"> ما هو Flexbox ؟</h2>
+  <p>
+    <b>Flexbox</b> طريقة في CSS تساعدنا نرتّب العناصر داخل الصندوق (container) بسهولة،  
+    يعني نقدر نخليهم جنب بعض أو فوق بعض، ونقدر نتحكم في أماكنهم بسهولة جدًا.
+  </p>
+
+  <h3 style="color:#0096c7;"> أهم خصائص Flexbox:</h3>
+  <ul style="margin-left:20px;">
+    <li>
+      <b>display: flex;   "بديها للأب "</b><br>
+      تجعل العنصر الرئيسي (الأب) صندوق مرن يحتوي على عناصر داخلية تتحرك بسهولة.
+      <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  display: flex;
+}
+      </pre>
+    </li>
+
+    <li>
+      <b>flex-direction:</b><br>
+      تحدد اتجاه العناصر داخل الصندوق.
+      <ul>
+        <li>row → (default) من اليسار إلى اليمين</li>
+        <li>row-reverse → من اليمين إلى اليسار</li>
+        <li>column → من الأعلى إلى الأسفل</li>
+        <li>column-reverse → من الأسفل إلى الأعلى</li>
+      </ul>
+
+      <br>
+
+      <video src="flex-row.mp4" controls width="500" height="500"></video>
+
+      <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  display: flex;
+  flex-direction: row;
+}
+      </pre>
+
+
+
+    </li>
+
+    <hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #f40ffc);">
+
+
+    <li>
+      <b>justify-content:</b><br>
+      تتحكم في مكان العناصر أفقيًا (يمين أو يسار أو في المنتصف).
+      <ul>
+        <li>flex-start →  (default)تبدأ من اليسار</li>
+        <li>flex-end → في اليمين</li>
+        <li>center → في المنتصف</li>
+        <li>space-between → مسافات متساوية بين العناصر</li>
+        <li>space-around → مسافات بين العناصر وعلى الأطراف</li>
+      </ul>
+
+      <br>
+
+      <video src="justifycontent.mp4" controls width="500px" height="500px" ></video>
+      <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  justify-content: center;
+  justify-content: flex-start;
+  justify-content: flex-end;
+}
+      </pre>
+    </li>
+
+        <hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #f40ffc);">
+
+
+
+
+
+
+    <li>
+      <b>align-items:</b><br>
+      تتحكم في مكان العناصر عموديًا (أعلى أو أسفل أو في المنتصف).
+      <ul>
+        <li>flex-start → فوق</li>
+        <li>flex-end → تحت</li>
+        <li>center → في النص</li>
+        <li>stretch → تمتد لتملأ الطول</li>
+      </ul>
+
+      <br>
+
+
+              <video src="align-items.mp4" controls width="500px" height="500px" ></video>
+
+      
+
+
+
+      <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  align-items: center;
+}
+      </pre>
+    </li>
+    
+        <hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #f40ffc);">
+
+
+
+    <li>
+       <p>
+    عندما نستخدم <b>Flexbox</b>، أحيانًا بيكون عندنا عناصر كثيرة في صف واحد.  
+    إذا لم تكن هناك مساحة كافية، فبشكل طبيعي  حتى تدخل كلها في نفس السطر.  
+    هنا يأتي دور <b>flex-wrap</b>!
+  </p>
+
+   <h4 style="color:#d2691e;">🔸 القيم الممكنة:</h4>
+  <ul>
+    <li><b>nowrap</b>  →  كل العناصر تبقى في نفس السطر حتى لو خرجت خارج الصندوق. حتى لو مفي مساحه العناصر مش هتنزل سطر جديد (DEFAULT)</li>
+    <li><b>wrap</b> → تجعل العناصر تنزل إلى سطر جديد عندما لا يكون هناك مساحة.</li>
+    <li><b>wrap-reverse</b> → مثل wrap، لكن الصفوف الجديدة تظهر من الأعلى للأسفل بالعكس.</li>
+  </ul>
+
+  <br>
+      <br>
+
+
+
+
+
+                    <video src="flexwrap.mp4" controls width="500px" height="500px" ></video>
+
+      <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  flex-wrap: wrap;
+}
+      </pre>
+    </li>
+
+            <hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #f40ffc);">
+
+
+
+
+    <li>
+      <b>align-content:</b><br>
+      تستخدم فقط عندما يكون لدينا أكثر من صف (باستخدام wrap)،  
+      وهي تتحكم في المسافة بين الصفوف.
+
+      <br>
+
+                          <video src="aligncontent.mp4" controls width="500px" height="500px" ></video>
+
+
+
+      <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+      </pre>
+    </li>
+  </ul>
+
+
+          <hr style="border:none; height:3px; width:90%; margin:30px auto; border-radius:5px; background:linear-gradient(to right, #0be9d6, #f40ffc);">
+
+
+  <h3 style="color:#0077b6;">مثال بسيط:</h3>
+  <pre style="direction:ltr; background:#f8f8f8; padding:10px; border-radius:6px;">
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.item {
+  background-color: lightblue;
+  padding: 20px;
+}
+  </pre>
+
+  <p>🔹 مثال في الصفحة:</p>
+  <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:10px;">
+    <div style="background-color:lightblue; padding:20px; border-radius:6px;">واحد</div>
+    <div style="background-color:lightblue; padding:20px; border-radius:6px;">اثنان</div>
+    <div style="background-color:lightblue; padding:20px; border-radius:6px;">ثلاثة</div>
+  </div>
+
+  <p style="margin-top:15px;"> النتيجة: 3 مربعات لونها أزرق فاتح، في المنتصف تمامًا — بجانب بعض.</p>
+</div>
+
+
+  <hr>
+
+  <h3 style="color:#333;">🔹 مثال عملي شامل:</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.box {
+  background-color: steelblue;
+  color: white;
+  padding: 20px;
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 شرح المثال بالعربي:</h3>
+  <p style="color:#444; font-size:16px;">
+    - كل العناصر (Box 1, Box 2, Box 3) بقت في صف واحد.<br>
+    - تم توزيعهم بالتساوي باستخدام <b>justify-content: space-between;</b><br>
+    - كل عنصر بياخد نفس المساحة تلقائيًا بفضل <b>flex: 1;</b><br>
+    - لما الشاشة تصغر، العناصر بتنزل سطر جديد بسبب <b>flex-wrap: wrap;</b>
+  </p>
+
+  <h3 style="color:#333;">🔹 Flex Direction Examples:</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+/* افقي */
+.container { flex-direction: row; }
+
+بتخلي العناصر على الشمال مترتبين الترتيب الطبيعي بتاع الاتش تي ام ال 
+
+
+/* افقي عكسي */
+.container { flex-direction: row-reverse; }
+
+بتودي العناصر اقصى اليمين وتعكس ترتيبهم 
+
+/* عمودي */
+.container { flex-direction: column; }
+
+بتغير شكل العناصر من صف إلى عمود
+
+/* عمودي عكسي */
+.container { flex-direction: column-reverse; }
+
+  بتغير شكل العناصر من صف إلى عمود
+  معكوس
+
+  </pre>
+
+  <h3 style="color:#333;">🔹 justify-content Examples:</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+.container {
+  display: flex;
+  justify-content: center;        /* العناصر في المنتصف */
+  /* أو استخدم:
+     flex-start | flex-end | space-between | space-around | space-evenly */
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 align-items Examples:</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+.container {
+  display: flex;
+  align-items: center;            /* العناصر في المنتصف عموديًا */
+  /* أو استخدم:
+     flex-start | flex-end | stretch | baseline */
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 الفرق بين justify-content و align-items:</h3>
+  <p style="color:#444; font-size:16px;">
+    - <b>justify-content</b> بيتحكم في محاذاة العناصر أفقياً (يمين – شمال).<br>
+    - <b>align-items</b> بيتحكم في محاذاتهم عمودياً (فوق – تحت).<br>
+    ولو استخدمت <b>flex-direction: column;</b> بيتعكس الاتجاه.
+  </p>
+
+  <h3 style="color:#333;">🔹 مثال توضيحي بسيط (عربي + إنجليزي):</h3>
+  <pre style="background:#222; color:#0f0; padding:15px; border-radius:10px; overflow-x:auto; font-size:15px; direction:ltr;">
+&lt;div style="display:flex; justify-content:center; align-items:center; height:200px; background:lightgray;"&gt;
+  &lt;div style="background:tomato; color:white; padding:20px;"&gt;
+    Hello Flexbox 👋 / أهلاً Flexbox
+  &lt;/div&gt;
+&lt;/div&gt;
+  </pre>
+
+  <p style="color:#444; font-size:16px;">
+    النتيجة: المربع الأحمر بيظهر في منتصف الصفحة أفقيًا وعموديًا، وده أقوى ميزة في الـ Flexbox.
+  </p>
+
+  <hr style="border:none; height:3px; background:linear-gradient(to right, #00bfa5, #0078d7); border-radius:2px; width:60%; margin:20px auto;">
+  <p style="text-align:center; color:#333; font-style:italic;"> نهاية شرح Flexbox — جرّب الأكواد بنفسك متكسلش!</p>
 
 </div>
 
 
+
+</div>
 
 
 
