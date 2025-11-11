@@ -2266,6 +2266,531 @@ body {
   <hr style="border:none; height:3px; background:linear-gradient(to right, #00bfa5, #0078d7); border-radius:2px; width:60%; margin:20px auto;">
   <p style="text-align:center; color:#333; font-style:italic;"> نهاية شرح Flexbox — جرّب الأكواد بنفسك متكسلش!</p>
 
+
+  <!--  درس Flexbox للأطفال (عامية بسيطة + أمثلة) -->
+<div style="background:#fffbee; padding:20px; border-radius:12px; font-family:Arial, sans-serif; line-height:1.8; color:#222; max-width:980px; margin:20px auto; direction:rtl;">
+
+  <h2 style="color:#d35400; text-align:center;"> شرح سهل اوي</h2>
+
+  <!-- 1: Main axis -->
+  <h3>1) Main-Axis (المحور الرئيسي)</h3>
+  <p>
+    تخيل الصندوق (container) فيه صف أو عمود من الألعاب. المحور الرئيسي هو المكان اللي الألعاب بتمشي عليه — ممكن يكون أفقي (صف) أو عمودي (عمود) حسب اللي انت تختاره.
+  </p>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+/* example: main axis is horizontal (row) */
+.container { display:flex; flex-direction:row; }
+  </pre>
+
+  <!-- 2: Main-Start / Main-End -->
+  <h3>2) Main-Start / Main-End (فين البداية والنهاية على المحور الرئيسي)</h3>
+  <p>
+    لو المحور أفقي، الألعاب بتبدأ من اليمين أو الشمال — اللى هو <b>main-start</b> لحد <b>main-end</b>. ده معناه المكان اللي العناصر بتتحط منه لحد ما تخلص.
+  </p>
+
+  <!-- 3: Main-Size -->
+  <h3>3) Main-Size (حجم المحور الرئيسي)</h3>
+  <p>
+    ده المقاس اللي المتصفح بيعده على المحور الرئيسي — يعني العرض لو المحور أفقي، أو الطول لو المحور عمودي.
+  </p>
+
+  <!-- 4: Cross-Axis -->
+  <h3>4) Cross-Axis (المحور المتقاطع)</h3>
+  <p>
+    ده المحور اللي عمودي على المحور الرئيسي. يعني لو عندنا صف (أفقي) فالمحور المتقاطع يكون رأسي، والعكس صحيح.
+  </p>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+/* row -> main is horizontal, cross is vertical */
+.container { display:flex; flex-direction:row; }
+
+/* column -> main is vertical, cross is horizontal */
+.container { display:flex; flex-direction:column; }
+  </pre>
+
+  <!-- 5: Cross-Start / Cross-End -->
+  <h3>5) Cross-Start / Cross-End</h3>
+  <p>
+    زي ال-main start/end لكن على المحور التاني — المكان اللي العناصر بتبدأ منه وتنتهي على المحور المتقاطع.
+  </p>
+
+  <!-- 6: Cross-Size -->
+  <h3>6) Cross-Size (حجم العنصر على المحور المتقاطع)</h3>
+  <p>
+    يعني عرض أو ارتفاع العنصر حسب اللي هو على المحور المتقاطع. لو المحور المتقاطع هو العرض يبقى الـ cross-size = width، ولو الطول يبقى = height.
+  </p>
+
+  <hr style="border:none; height:2px; background:linear-gradient(to right,#ffd8a8,#ffd1dc); border-radius:4px; margin:18px 0;">
+
+  <h3>1-3) Flex Container و Flex Items (الأب والولاد)</h3>
+  <p>
+    علشان Flexbox يشتغل لازم يكون في أب (parent) وولاد (children). الأب بنسميه <b>flex container</b>، والولاد دي بتكون <b>flex items</b>.
+  </p>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+<!-- HTML -->
+&lt;div class="container"&gt;
+  &lt;div class="item"&gt;A&lt;/div&gt;
+  &lt;div class="item"&gt;B&lt;/div&gt;
+  &lt;div class="item"&gt;C&lt;/div&gt;
+&lt;/div&gt;
+
+/* CSS */
+.container { display:flex; } /* كده الأب بقى flex container */
+.item { padding:10px; background:lightblue; margin:5px; }
+  </pre>
+
+  <h3>Display</h3>
+  <p>
+    علشان تبدأ Flexbox لازم تكتب <code>display:flex</code> على الأب. فيه كمان <code>inline-flex</code> لو عايز الأب يتصرف كعنصر سطري بدل بلوك.
+  </p>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container { display:flex; }        /* بلوك فليكس */
+.container-inline { display:inline-flex; }  /* سطري فليكس */
+  </pre>
+
+  <hr style="border:none; height:2px; background:linear-gradient(to right,#cfe9ff,#d6f5d6); border-radius:4px; margin:18px 0;">
+
+  <h3>Section 2: خصائص الوالد (Parent properties)</h3>
+
+  <h4>2-1) flex-direction (تحديد المحور الرئيسي)</h4>
+  <p>
+    القيمة اللي تختارها بتحدد المحور الرئيسي:
+  </p>
+  <ul>
+    <li><b>row</b> (الافتراضي): العناصر على صف من اليسار لليمين</li>
+    <li><b>row-reverse</b>: العناصر على صف من اليمين لليسار</li>
+    <li><b>column</b>: العناصر في عمود من فوق لتحت</li>
+    <li><b>column-reverse</b>: العناصر من تحت لفوق</li>
+  </ul>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container { display:flex; flex-direction:row; } /* row example */
+  </pre>
+
+  <h4>2-2-1) justify-content (محور الـ main - توزيع على المحور الرئيسي)</h4>
+  <p>
+    الخاصية دي بتحدد ازاي العناصر تتوزع على المحور الرئيسي (يبقى صف أو عمود حسب flex-direction).
+  </p>
+  <ul>
+    <li><b>flex-start</b>: العناصر تبدأ من أول المكان</li>
+    <li><b>flex-end</b>: العناصر تروح لنهاية المكان</li>
+    <li><b>center</b>: العناصر في النص / المنتصف</li>
+    <li><b>space-between</b>: تفرق المسافات بين العناصر بالتساوي (من غير مسافة على الأطراف)</li>
+    <li><b>space-around</b>: نفس الفكرة بس فيها مسافة على الأطراف</li>
+    <li><b>space-evenly</b>: مسافات متساوية تمامًا حوالي العناصر كلها</li>
+  </ul>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container { display:flex; justify-content:space-between; }
+  </pre>
+
+  <p><b>ملاحظة:</b> لما يكون المحور الرئيسي عمودي (flex-direction: column) فـ justify-content بيأثر في الاتجاه الرأسي بدل الأفقي.</p>
+
+  <h4>Distribution / Align (محور الـ cross)</h4>
+  <p>
+    الخاصية اللي بتوزع العناصر على المحور التاني (اللي متعامد مع الرئيسي) اسمها <b>align-items</b>.
+  </p>
+  <ul>
+    <li><b>stretch</b> (الافتراضي): العناصر تتمدد على كامل المحور التاني</li>
+    <li><b>flex-start</b>: تبدأ من فوق (أو من جهة البداية)</li>
+    <li><b>flex-end</b>: تنتهي عند النهاية</li>
+    <li><b>center</b>: في نص المحور</li>
+    <li><b>baseline</b>: تتراص حسب سطر النص الأساسي (مفيد للنصوص)</li>
+  </ul>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container { display:flex; align-items:center; }
+  </pre>
+
+  <p><b>ملاحظة:</b> لو direction column، الـ align-items يتحكم في المحور اللي بقى أفقي.</p>
+
+  <h4>flex-wrap</h4>
+  <p>
+    لما العناصر تبقى كتير ومش فاضية المساحة، <b>flex-wrap</b> بتقولهم ينزلوا سطر جديد ولا يفضلوا في سطر واحد.
+  </p>
+  <ul>
+    <li><b>nowrap</b> (افتراضي): كل العناصر تبقى في سطر واحد (ممكن تخرج بره)</li>
+    <li><b>wrap</b>: العناصر تنزل لسطر جديد لما المساحة تقل</li>
+    <li><b>wrap-reverse</b>: نفس wrap لكن الصفوف الجديدة بتيجي بالعكس</li>
+  </ul>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container { display:flex; flex-wrap:wrap; }
+  </pre>
+
+  <h4>align-content</h4>
+  <p>
+    خاصية بتتحكم في المسافات بين الصفوف لما العناصر تبقى على أكتر من صف (يعني بعد ما نستخدم wrap).
+  </p>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container {
+  flex-wrap:wrap;
+  align-content:space-between;
+}
+  </pre>
+
+  <hr style="border:none; height:2px; background:linear-gradient(to right,#e6ffe6,#e6f0ff); border-radius:4px; margin:18px 0;">
+
+  <h3>أمثلة عملية قصيرة (تجريبية)</h3>
+
+  <h4>أ) مثال صف بسيط مع justify-content</h4>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container {
+  display:flex;
+  justify-content:space-between;
+}
+.item { width:80px; height:50px; background:lightcoral; }
+  </pre>
+
+  <h4>ب) مثال wrap عشان العناصر تنزل لسطر جديد</h4>
+  <pre style="direction:ltr; background:#f6f8fa; padding:10px; border-radius:8px;">
+.container {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  max-width:360px;
+  border:2px dashed #ccc;
+}
+.item { width:120px; height:60px; background:lightgreen; }
+  </pre>
+
+  <div style="margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:420px; border:2px dashed #ffd9b3; padding:10px;">
+    <div style="width:120px; height:60px; background:lightgreen; display:flex; align-items:center; justify-content:center;">1</div>
+    <div style="width:120px; height:60px; background:lightgreen; display:flex; align-items:center; justify-content:center;">2</div>
+    <div style="width:120px; height:60px; background:lightgreen; display:flex; align-items:center; justify-content:center;">3</div>
+    <div style="width:120px; height:60px; background:lightgreen; display:flex; align-items:center; justify-content:center;">4</div>
+  </div>
+
+  <p style="margin-top:10px;">
+    شوف؟ العنصر الرابع نزل تحت لما المساحة ماكنتش كفاية — ده شغل <b>flex-wrap: wrap;</b>
+  </p>
+
+  <hr style="border:none; height:2px; background:linear-gradient(to right,#ffd1e8,#d1ffec); border-radius:4px; margin:18px 0;">
+
+  <h3>نصايح أخيرة للأطفال (مختصر)</h3>
+  <ul>
+    <li>فكر في container كصندوق كبير والأشياء جواه لعب.</li>
+    <li>المحور الرئيسي (main-axis) هو طريق الحركة — يقدر يكون أفقي أو عمودي.</li>
+    <li>لو المساحة خلصت، استخدم <code>flex-wrap</code> علشان الألعاب تنزل سطر جديد.</li>
+    <li>لو عايز حاجة في النص استخدم <code>justify-content:center</code> و<code>align-items:center</code>.</li>
+  </ul>
+
+  <p style="text-align:center; font-weight:bold; color:#444; margin-top:12px;">
+  </p>
+
+
+
+</div>
+<div style="background:#f9f9f9; padding:20px; border-radius:15px; font-family: 'Cairo', sans-serif; line-height:1.8;">
+
+  <h3 style="color:#333;">🔹 1. خاصية align-content</h3>
+  <p>
+    الخاصية دي بتتحكم في **المسافات بين الصفوف** لما العناصر بتلف على كذا سطر (يعني لما نستخدم <b>flex-wrap</b>).
+    لو العناصر نزلت تحت بعضها، align-content بتظبطهم ازاي يكونوا متوزعين.
+  </p>
+  <ul>
+    <li><b>stretch</b>: بتخلي الصفوف تتمدد وتملأ المساحة كلها (دي القيمة الافتراضية).</li>
+    <li><b>flex-start</b>: بتخلي الصفوف فوق.</li>
+    <li><b>flex-end</b>: بتخلي الصفوف تحت.</li>
+    <li><b>center</b>: بتحط الصفوف في نص الكونتينر.</li>
+    <li><b>space-between</b>: بتحط أول صف فوق وآخر صف تحت والباقي في النص بمسافات متساوية.</li>
+    <li><b>space-around</b>: بتحط مسافة متساوية حوالين كل صف.</li>
+  </ul>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+  </pre>
+
+  <hr style="border: none; height: 2px; background: linear-gradient(to right, #4A90E2, #50E3C2); margin: 20px 0;">
+
+  <h3 style="color:#333;">🔹 2. خاصية align-self</h3>
+  <p>
+    الخاصية دي بتتحكم في <b>عنصر واحد بس</b> من العناصر اللي جوّه الفليكس.  
+    يعني لو عندك 3 عناصر وكلهم متوسّطين فوق، تقدر تعمل لعنصر واحد بس يكون في النص أو تحت باستخدام align-self.
+  </p>
+  <ul>
+    <li><b>auto</b>: بياخد القيمة من align-items (القيمة العامة).</li>
+    <li><b>flex-start</b>: العنصر فوق.</li>
+    <li><b>flex-end</b>: العنصر تحت.</li>
+    <li><b>center</b>: العنصر في النص.</li>
+    <li><b>stretch</b>: العنصر يتمدد ويملأ المساحة.</li>
+  </ul>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.item {
+  align-self: flex-end;
+}
+  </pre>
+
+  <hr style="border: none; height: 2px; background: linear-gradient(to right, #4A90E2, #50E3C2); margin: 20px 0;">
+
+  <h3 style="color:#333;">🔹 3. خاصية order</h3>
+  <p>
+    دي بتتحكم في **ترتيب العناصر** جوه الفليكس.  
+    يعني حتى لو عنصر مكتوب قبل التاني في الكود، ممكن تخليه يظهر بعده أو قبله بتغيير الرقم بتاع order.
+  </p>
+  <ul>
+    <li>الرقم الأصغر بيخلي العنصر يطلع قبل.</li>
+    <li>الرقم الأكبر بيخليه ييجي بعد.</li>
+  </ul>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.item1 { order: 2; }
+.item2 { order: 1; }
+.item3 { order: 3; }
+  </pre>
+  <p>في المثال ده، العنصر التاني هيظهر الأول 👀</p>
+
+  <hr style="border: none; height: 2px; background: linear-gradient(to right, #4A90E2, #50E3C2); margin: 20px 0;">
+
+  <h3 style="color:#333;">🔹 4. خاصية flex-grow</h3>
+  <p>
+    الخاصية دي بتقول للعنصر: "كبر وخد مساحة زيادة" لما في مساحة فاضية في الكونتينر.  
+    كل ما الرقم يزيد، العنصر بياخد مساحة أكبر.
+  </p>
+  <ul>
+    <li><b>0</b>: (القيمة الافتراضية) العنصر مش هيكبر.</li>
+    <li><b>1</b>: العنصر هيكبر وياخد مساحة مساوية لأي عنصر تاني ليه نفس القيمة.</li>
+  </ul>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.item1 { flex-grow: 1; }
+.item2 { flex-grow: 2; } /* هيكبر أكتر */
+  </pre>
+
+  <hr style="border: none; height: 2px; background: linear-gradient(to right, #4A90E2, #50E3C2); margin: 20px 0;">
+
+  <h3 style="color:#333;">🔹 5. خاصية flex-shrink</h3>
+  <p>
+    دي عكس flex-grow 
+    بتتحكم في **تصغير العناصر** لما المساحة تضيق.  
+    لو الرقم كبير، العنصر هيصغر أكتر لما الكونتينر يديق.
+  </p>
+  <ul>
+    <li><b>0</b>: العنصر مش هيصغر خالص.</li>
+    <li><b>1</b>: العنصر هيصغر بنسبة عادية.</li>
+    <li><b>2</b>: العنصر هيصغر أكتر من غيره.</li>
+  </ul>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.item1 { flex-shrink: 1; }
+.item2 { flex-shrink: 2; }
+  </pre>
+
+  <hr style="border: none; height: 2px; background: linear-gradient(to right, #4A90E2, #50E3C2); margin: 20px 0;">
+
+  <h3 style="color:#333;">🔹 6. خاصية flex-basis</h3>
+  <p>
+    الخاصية دي بتحدد **الحجم المبدأي** للعنصر قبل ما flex-grow أو flex-shrink يشتغلوا.  
+    يعني زي ما تقول “ابدأ من الحجم ده”، وبعد كده يتغير حسب المساحة.
+  </p>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.item {
+  flex-basis: 200px;
+}
+  </pre>
+  <p>يعني العنصر هيبدأ عرضه 200px وبعدها ممكن يكبر أو يصغر حسب باقي الخصائص.</p>
+
+  <hr style="border: none; height: 2px; background: linear-gradient(to right, #4A90E2, #50E3C2); margin: 20px 0;">
+
+  <h3 style="color:#333;">🔹 7. خاصية flex (الاختصار)</h3>
+  <p>
+    دي اختصار للـ 3 خصائص اللي فوق: <b>flex-grow</b> و <b>flex-shrink</b> و <b>flex-basis</b>  
+    الشكل العام بيكون كده:
+  </p>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.item {
+  flex: 1 1 200px; /* grow shrink basis */
+}
+  </pre>
+  <p>
+    يعني: يكبر بنسبة 1، يصغر بنسبة 1، ويبدأ من 200px 
+  </p>
+
+  <img src="ff1.jpeg" alt="">
+  <img src="ff2.jpeg" alt="">
+  <img src="ff3.jpeg" alt="">
+
+  <p style="background:#e0f7fa; padding:10px; border-radius:10px; margin-top:20px;">
+     <b>ملحوظة مهمة:</b>  
+    Flexbox بيساعدنا نخلي التصميم متجاوب وسهل التوزيع للعناصر على الصفحة،  
+    وبيخلي كل حاجة تتظبط من غير ما نحسب المسافات بإيدينا 
+  </p>
+</div>
+
+
+
+<div style="background:#f9f9f9; padding:25px; border-radius:15px; font-family: 'Cairo', sans-serif; line-height:1.9;">
+  <h2 style="color:#4A90E2;">🎯 CSS Grid (شرح كامل)</h2>
+
+  <h3 style="color:#333;">🔹 What is CSS Grid?</h3>
+  <p>
+    <b>English:</b> CSS Grid is a powerful layout system in CSS that allows developers to create complex, responsive web designs easily.  
+    It’s a two-dimensional system that handles both rows and columns. Unlike Flexbox, which mainly works in one direction.
+  </p>
+  <p>
+    <b>Arabic:</b>  
+    الـ <b>CSS Grid</b> هو نظام قوي لتقسيم وتنسيق الصفحة.  
+    بيساعدنا نعمل تصميم منظم وسهل سواء في الاتجاه الأفقي (الأعمدة) أو العمودي (الصفوف).  
+    وده اللي بيميزه عن Flexbox اللي بيشتغل في اتجاه واحد بس.
+  </p>
+
+  <h3 style="color:#333;">💡 Solving Float Problems using Grid</h3>
+  <p>
+    <b>English:</b>  
+    Before Grid, developers used <b>float</b> to arrange elements, which caused issues like collapsing parents and wrapping problems.  
+    Grid solves these issues — no more clearfix hacks, no weird wrapping.
+  </p>
+  <p>
+    <b>Arabic:</b>  
+    زمان قبل ما يظهر الـ Grid، المصممين كانوا بيستخدموا خاصية <b>float</b> لترتيب العناصر.  
+    بس ده كان بيعمل مشاكل كتير زي إن العنصر الأب ينهار أو العناصر تتلف بشكل غلط.  
+    الـ Grid حل كل ده بسهولة .
+  </p>
+
+  <h3 style="color:#333;"> Difference between display: grid and display: inline-grid</h3>
+  <ul>
+    <li><b>display: grid;</b> → Makes a block-level grid (takes full width).</li>
+    <li><b>display: inline-grid;</b> → Makes an inline grid (takes only needed width).</li>
+  </ul>
+  <p>
+    <b>Arabic:</b>  
+    الاتنين بيحولوا العنصر لـ Grid، بس الفرق:  
+    <ul>
+      <li><b>grid</b>: بياخد عرض الصفحة كله.</li>
+      <li><b>inline-grid</b>: بياخد المساحة اللي هو محتاجها بس.</li>
+    </ul>
+  </p>
+
+  <h3 style="color:#333;"> CSS Grid Anatomy (أجزاء شبكة الـ Grid)</h3>
+  <ul>
+    <li><b>Grid Lines:</b> الخطوط اللي بتقسم الأعمدة والصفوف.</li>
+    <li><b>Grid Cell:</b> خلية واحدة (مربع صغير).</li>
+    <li><b>Grid Area:</b> مجموعة خلايا متجمعة مع بعض.</li>
+    <li><b>Grid Track (Column):</b> عمود في الشبكة.</li>
+    <li><b>Grid Track (Row):</b> صف في الشبكة.</li>
+    <li><b>Axes:</b>  
+      <ul>
+        <li>Inline axis = الاتجاه الأفقي.</li>
+        <li>Block axis = الاتجاه العمودي.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout/grid_en.svg" 
+       alt="Grid Structure Example" 
+       style="max-width:100%; border-radius:10px; margin:10px 0;">
+
+  <h3 style="color:#333;"> grid-template-columns</h3>
+  <p>
+    <b>English:</b>  
+    This property defines how many columns your grid will have and how wide each one is.
+  </p>
+  <p>
+    <b>Arabic:</b>  
+    الخاصية دي بتحدد عدد الأعمدة في الشبكة والعرض بتاع كل عمود.
+  </p>
+
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.container {
+  display: grid;
+  grid-template-columns: 100px 150px 200px;
+  gap: 10px;
+}
+  </pre>
+
+  <p> ده معناه إن عندنا 3 أعمدة: الأول 100px، التاني 150px، التالت 200px، وبينهم 10px مسافة.</p>
+
+  <h3 style="color:#333;">🔹 Using Auto, fr, and repeat()</h3>
+  <ul>
+    <li><b>auto:</b> يخلي المتصفح يحدد عرض العمود حسب المحتوى.</li>
+    <li><b>fr (Fraction):</b> جزء من المساحة الفاضية، مثال: <code>1fr 2fr</code> يعني التاني ضعف الأول.</li>
+    <li><b>repeat():</b> تستخدم لتكرار الأعمدة بسهولة، مثال: <code>repeat(3, 1fr)</code> يعني 3 أعمدة متساوية.</li>
+  </ul>
+
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 Using minmax(), auto-fit, auto-fill</h3>
+  <p>
+    <b>English:</b>  
+    The <code>minmax()</code> function defines a column with a minimum and maximum size.  
+    <code>auto-fit</code> and <code>auto-fill</code> make grids flexible for responsive designs.
+  </p>
+  <p>
+    <b>Arabic:</b>  
+    <code>minmax()</code> بتحدد أقل وأكبر عرض للعمود، و <code>auto-fit</code> و <code>auto-fill</code> بيخلوا التصميم متجاوب.  
+  </p>
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+  </pre>
+
+  <h3 style="color:#333;">🔹 grid-template-rows & grid-auto-rows</h3>
+  <p>
+    <b>English:</b>  
+    These properties control the height of rows. <code>grid-template-rows</code> sets fixed rows,  
+    while <code>grid-auto-rows</code> applies to new rows created automatically.
+  </p>
+  <p>
+    <b>Arabic:</b>  
+    بتحدد ارتفاع الصفوف، الأولى للصفوف اللي انت حددتها بنفسك، والتانية للصفوف اللي بتتضاف تلقائيًا.
+  </p>
+
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.container {
+  grid-template-rows: 100px 150px;
+  grid-auto-rows: 80px;
+}
+  </pre>
+
+  <h3 style="color:#333;"> justify-content & align-content</h3>
+  <p>
+    <b>English:</b>  
+    These properties align the entire grid inside its container.  
+    <code>justify-content</code> controls horizontal alignment,  
+    and <code>align-content</code> controls vertical alignment.
+  </p>
+  <p>
+    <b>Arabic:</b>  
+    الخصائص دي بتظبط مكان الشبكة كلها جوه الكونتينر.  
+    الأولى بتحركها يمين وشمال، والتانية فوق وتحت.
+  </p>
+  <ul>
+    <li><b>flex-start:</b> فوق أو بداية الاتجاه</li>
+    <li><b>center:</b> في النص</li>
+    <li><b>flex-end:</b> في الآخر</li>
+    <li><b>space-between:</b> فراغ متساوي بين العناصر</li>
+    <li><b>space-around:</b> فراغ حوالين كل عنصر</li>
+    <li><b>space-evenly:</b> مسافات متساوية تمامًا</li>
+  </ul>
+
+  <pre style="background:#eee; padding:10px; border-radius:8px; direction:ltr;">
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: space-between;
+}
+  </pre>
+
+  <p style="background:#e0f7fa; padding:10px; border-radius:10px;">
+    🌟 <b>ملحوظة:</b>  
+    الخصائص دي بتشتغل لما يكون في مساحة فاضية في الكونتينر.  
+    لو كل الأعمدة والصفوف واخدين المساحة كلها، مش هتشوف تأثيرهم.
+  </p>
+</div>
+
+<img src="g1.jpeg" alt="">
+<img src="g2.jpeg" alt="">
+<img src="g3.jpeg" alt="">
+<img src="g4.jpeg" alt="">
+<img src="g5.jpeg" alt="">
+<img src="g6.jpeg" alt="">
+<img src="g7.jpeg" alt="">
+
+
+
 </div>
 
 
