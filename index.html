@@ -2930,10 +2930,138 @@ body {
     <div class="footer" style="grid-area:footer; background:#333; color:white; text-align:center; line-height:50px;">Footer</div>
   </div>
 
+  <section style="direction: rtl; padding: 20px; font-family: 'Cairo', sans-serif;">
+  <h2 style="color:#ff6600;"> CSS Animation</h2>
+
+  <p style="direction:ltr;">
+    CSS animations allow you to make elements move, change color, size, or style over time without using JavaScript.
+  </p>
+
+  <h4> الشرح بالعربي:</h4>
+  <ul>
+    <li>الأنيميشن (Animation) في CSS بيخلي العناصر تتحرك أو يتغير شكلها أو لونها مع الوقت.</li>
+    <li>يعني ممكن تخلي زرار يكبر، أو لون مربع يتغير، أو عنصر يتحرك من مكان لمكان.</li>
+    <li>من غير ما تستخدم JavaScript!</li>
+  </ul>
+
+  <h3 style="color:#0078ff;"> خطوات عمل Animation:</h3>
+  <ul>
+    <li>١️⃣ نستخدم <code>@keyframes</code> علشان نكتب مراحل الحركة.</li>
+    <li>٢️⃣ نربط الأنيميشن بالعنصر ونحدد المدة والاتجاه.</li>
+  </ul>
+
+  <h4> مثال بسيط:</h4>
+  <pre style="background:#f7f7f7; padding:10px; border-radius:8px; direction:ltr;">
+@keyframes moveBox {
+  0% { background-color: red; left: 0px; }
+  50% { background-color: blue; left: 100px; }
+  100% { background-color: green; left: 0px; }
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation: moveBox 3s infinite;
+}
+  </pre>
+
+  <div class="box" style="width:100px; height:100px; position:relative; background:red; animation: moveBox 3s infinite;"></div>
+
+  <style>
+    @keyframes moveBox {
+      0% { background-color: red; left: 0px; }
+      50% { background-color: blue; left: 100px; }
+      100% { background-color: green; left: 0px; }
+    }
+  </style>
+
+  <h3 style="color:#0078ff;">📖 أهم خصائص الأنيميشن:</h3>
+  <ul>
+    <li><b>animation-name:</b> اسم الحركة (زي moveBox).</li>
+    <li><b>animation-duration:</b> الوقت اللي تاخده الحركة (مثلاً 3s يعني 3 ثواني).</li>
+    <li><b>animation-iteration-count:</b> عدد المرات (ممكن نكتب infinite لو عايزينها ما تخلصش).</li>
+    <li><b>animation-delay:</b> وقت الانتظار قبل ما تبدأ.</li>
+    <li><b>animation-direction:</b> اتجاه الحركة (normal, reverse, alternate).</li>
+  </ul>
+
+  <hr style="border: 1px dashed #ccc; margin: 40px 0;">
+
+  <h2 style="color:#28a745;"> CSS Variables</h2>
+
+  <p style="direction:ltr;">
+    CSS variables (also called custom properties) let you store values (like colors or font sizes) and reuse them throughout your code.
+  </p>
+
+  <h4> الشرح بالعربي:</h4>
+  <ul>
+    <li>المتغيرات (Variables) في CSS بتخلينا نحفظ قيم نستخدمها في كذا مكان.</li>
+    <li>زي اللون الأساسي للموقع، أو نوع الخط، بدل ما نعيد كتابته كل مرة.</li>
+    <li>نكتبها بـ <code>--name</code> ونستخدمها بـ <code>var(--name)</code>.</li>
+  </ul>
+
+  <h4> مثال بسيط:</h4>
+  <pre style="background:#f7f7f7; padding:10px; border-radius:8px; direction:ltr;">
+:root {
+  --main-color: #0078ff;
+  --text-size: 20px;
+}
+
+.box2 {
+  background-color: var(--main-color);
+  color: white;
+  font-size: var(--text-size);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+  </pre>
+
+  <div class="box2" style="background-color:var(--main-color); color:white; font-size:var(--text-size); padding:20px; text-align:center; border-radius:10px;">
+     Hello, I use CSS Variables!
+  </div>
+
+  <style>
+    :root {
+      --main-color: #0078ff;
+      --text-size: 20px;
+    }
+  </style>
+
+  <h3 style="color:#0078ff;"> فوايد CSS Variables:</h3>
+  <ul>
+    <li>بتخلي الكود منظم وسهل التعديل.</li>
+    <li>لو غيرت قيمة متغير واحد، كل الأماكن اللي بتستخدمه هتتغير تلقائيًا.</li>
+    <li>ممكن تستخدمها كمان في الـ dark mode أو themes بسهولة.</li>
+  </ul>
+
+  <h4> مثال صغير لتغيير الثيم:</h4>
+  <pre style="background:#f7f7f7; padding:10px; border-radius:8px; direction:ltr;">
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+.dark-theme {
+  --bg-color: #222;
+  --text-color: white;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+  </pre>
+
+  <p> كده ممكن تبدل بين الوضع الفاتح والداكن بمجرد تغير الكلاس على الـ body </p>
+</section>
+
+
   <img src="gc1.jpeg" alt="">
   <img src="gc2.jpeg" alt="">
   <img src="gc3.jpeg" alt="">
   <img src="gc4.jpeg" alt="">
+
 
 
 </section>
